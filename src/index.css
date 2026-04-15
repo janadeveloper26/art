@@ -1,6 +1,38 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
-@source "../src";
+@source "./**/*.{js,jsx,ts,tsx}";
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex !important;
+  justify-content: center !important;
+  background-color: #fff;
+}
+
+#root {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+nav, main, footer, section {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.max-w-7xl, .center-container {
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+}
 
 @theme {
   --color-rose-50: #fff1f2;
@@ -32,6 +64,13 @@
   padding: 0;
 }
 
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -42,35 +81,36 @@ body {
   background-color: #fff;
   color: #1a1a2e;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #fdf2f8;
-}
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #f43f5e, #a855f7);
-  border-radius: 3px;
-}
-
-/* Selection */
 ::selection {
   background: #fda4af;
   color: #fff;
 }
 
-/* Utility Classes */
-.font-playfair { font-family: 'Playfair Display', serif; }
-.font-vibes { font-family: 'Great Vibes', cursive; }
+/* Container Utility */
+.center-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 
-.gradient-text {
-  background: linear-gradient(135deg, #e11d48, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+@media (min-width: 640px) { .center-container { padding-left: 1.5rem; padding-right: 1.5rem; } }
+@media (min-width: 1024px) { .center-container { padding-left: 2rem; padding-right: 2rem; } }
+
+/* Force Centering via Utility */
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.max-w-7xl {
+  max-width: 80rem !important;
 }
 
 .gradient-bg {
