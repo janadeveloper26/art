@@ -6,52 +6,41 @@ export default function Loader() {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
-      style={{ background: 'linear-gradient(135deg, #fff1f2 0%, #f3e8ff 50%, #ffe4e6 100%)' }}
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white"
     >
-      {/* Spinning ring */}
-      <div className="relative w-24 h-24 mb-6">
-        <div
-          className="absolute inset-0 rounded-full border-4 border-transparent"
-          style={{
-            borderTopColor: '#e11d48',
-            borderRightColor: '#a855f7',
-            animation: 'loader-spin 1s linear infinite',
-          }}
-        />
-        <div
-          className="absolute inset-3 rounded-full border-4 border-transparent"
-          style={{
-            borderTopColor: '#a855f7',
-            borderRightColor: '#e11d48',
-            animation: 'loader-spin 0.7s linear infinite reverse',
-          }}
-        />
-        {/* Center flower emoji */}
-        <div className="absolute inset-0 flex items-center justify-center text-2xl">🌸</div>
-      </div>
+      <div className="relative">
+        {/* Decorative background blobs for loader */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-rose-100/50 rounded-full blur-3xl" />
+        
+        <div className="relative flex flex-col items-center">
+          <div className="relative w-20 h-20 mb-10">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+              className="absolute inset-0 rounded-full border-[3px] border-slate-100 border-t-rose-600"
+            />
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+              className="absolute inset-3 rounded-full border-[3px] border-slate-100 border-t-purple-500"
+            />
+            <div className="absolute inset-0 flex items-center justify-center text-xl">✨</div>
+          </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="text-center"
-      >
-        <p className="font-vibes text-4xl gradient-text mb-2">Glorious Art Creations</p>
-        <p className="text-rose-400 text-sm font-inter tracking-widest uppercase">Loading...</p>
-      </motion.div>
-
-      {/* Dots */}
-      <div className="flex gap-2 mt-6">
-        {[0, 1, 2].map(i => (
           <motion.div
-            key={i}
-            animate={{ scale: [1, 1.5, 1], opacity: [0.4, 1, 0.4] }}
-            transition={{ repeat: Infinity, duration: 1, delay: i * 0.2 }}
-            className="w-2 h-2 rounded-full"
-            style={{ background: i % 2 === 0 ? '#e11d48' : '#a855f7' }}
-          />
-        ))}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-center"
+          >
+            <h2 className="font-serif text-3xl font-bold text-slate-900 mb-2">Glorious Art</h2>
+            <div className="flex items-center gap-3">
+              <div className="h-px w-8 bg-rose-200" />
+              <p className="text-[10px] text-rose-500 font-extrabold uppercase tracking-[.3em]">Perfecting Beauty</p>
+              <div className="h-px w-8 bg-rose-200" />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </motion.div>
   )

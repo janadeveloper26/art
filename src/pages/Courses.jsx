@@ -1,280 +1,218 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { Star, ChevronRight, Clock, Users } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Clock, Users, ArrowRight, ShieldCheck, Phone, Plus } from 'lucide-react'
 import PageWrapper from '../components/PageWrapper'
+import SEO from '../components/SEO'
+
+// Assets
 import aariImg from '../assets/aari.png'
 import tailoringImg from '../assets/tailoring.png'
 import makeupImg from '../assets/makeup.png'
-import aboutImg from '../assets/about.png'
 
-const courses = [
+const coursesData = [
   {
     id: 'aari',
+    category: 'Embroidery',
     img: aariImg,
     title: 'Aari Embroidery',
-    subtitle: 'Basic to Advanced',
+    subtitle: 'Professional Bridal Art',
     duration: '3 Months',
     students: '150+',
     rating: 4.9,
-    description:
-      'Dive deep into the ancient art of Aari (tambour) embroidery — from holding the hook to creating stunning bridal blouses and home decor items with zari, sequins, silk threads, and beadwork.',
-    features: [
-      'Basic & advanced needle techniques',
-      'Gold and silver zari work',
-      'Sequin & bead application',
-      'Bridal blouse designing',
-      'Home décor embroidery',
-      'Pattern tracing & transfer',
-    ],
-    price: 'Enquire for Details',
-    badge: '🌟 Most Popular',
-    color: 'from-rose-100 to-pink-50',
-    accent: '#e11d48',
-    accentLight: '#fff1f2',
+    description: 'Master the traditional art of Aari embroidery in Chidambaram — from basic needles to complex bridal blouse designing.',
+    badge: '★ Best Seller'
   },
   {
     id: 'tailoring',
+    category: 'Fashion',
     img: tailoringImg,
-    title: 'Tailoring & Fashion Designing',
-    subtitle: 'Full Course',
+    title: 'Fashion Designing',
+    subtitle: 'Boutique Specialist',
     duration: '4 Months',
     students: '120+',
     rating: 4.8,
-    description:
-      'Learn garment construction from scratch — taking measurements, cutting, stitching, and finally creating beautiful dresses, churidars, saree blouses, and western wear.',
-    features: [
-      'Body measurements & pattern making',
-      'Fabric selection & cutting',
-      'Churidar & blouse stitching',
-      'Saree draping',
-      'Western wear construction',
-      'Fashion design basics',
-    ],
-    price: 'Enquire for Details',
-    badge: '✂️ In-demand',
-    color: 'from-purple-100 to-violet-50',
-    accent: '#a855f7',
-    accentLight: '#f3e8ff',
+    description: 'Learn garment construction, pattern making, and boutique-style stitching from scratch with expert tailoring classes.',
+    badge: '★ Professional'
   },
   {
     id: 'makeup',
+    category: 'Beauty',
     img: makeupImg,
-    title: 'Beauty & Makeup',
-    subtitle: 'Professional Course',
+    title: 'Makeup Artistry',
+    subtitle: 'Bridal & Grooming',
     duration: '2 Months',
     students: '200+',
     rating: 5.0,
-    description:
-      'Professional makeup artistry covering everyday glam to bridal makeup, skincare, and face treatments — also includes mehandi / henna design for bride and guests.',
-    features: [
-      'Skin prep & foundation',
-      'Eye makeup techniques',
-      'Bridal makeup full look',
-      'Mehandi / henna designs',
-      'Hair styling basics',
-      'Client handling skills',
-    ],
-    price: 'Enquire for Details',
-    badge: '💄 Best Seller',
-    color: 'from-amber-100 to-yellow-50',
-    accent: '#f59e0b',
-    accentLight: '#fffbeb',
+    description: 'Professional makeup artistry in Chidambaram covering everyday glam to heavy bridal looks and hair styling.',
+    badge: '★ Expert Rated'
   },
   {
     id: 'crafts',
-    img: null,
+    category: 'Crafts',
     emoji: '🧶',
-    title: 'Craft Courses',
-    subtitle: 'Tassels, Brooches & More',
+    title: 'Creative Crafts',
+    subtitle: 'Artisan Handicrafts',
     duration: '1 Month',
     students: '180+',
     rating: 4.7,
-    description:
-      'Learn beautiful handcraft skills — tassel making, decorative brooches, fabric & cloth dolls, and elaborate varusa (pooja) plates with floral and rangoli designs.',
-    features: [
-      'Silk thread tassels',
-      'Floral & stone brooches',
-      'Handmade fabric dolls',
-      'Varusa plate decoration',
-      'Gift packaging ideas',
-      'Resale & marketing tips',
-    ],
-    price: 'Enquire for Details',
-    badge: '🎨 Creative',
-    color: 'from-teal-100 to-emerald-50',
-    accent: '#0d9488',
-    accentLight: '#f0fdf4',
-  },
+    description: 'Learn beautiful silk thread crafts, varusa plates, and unique handmade decorative items in our Chidambaram studio.',
+    badge: '★ Creative'
+  }
 ]
 
+const categories = ['All', 'Embroidery', 'Fashion', 'Beauty', 'Crafts']
+
 export default function Courses() {
+  const [activeCategory, setActiveCategory] = useState('All')
+
+  const filtered = activeCategory === 'All' 
+    ? coursesData 
+    : coursesData.filter(c => c.category === activeCategory)
+
+  const coursesSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": coursesData.map((c, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "item": {
+        "@type": "Course",
+        "name": c.title,
+        "description": c.description,
+        "provider": {
+          "@type": "Organization",
+          "name": "Glorious Art Academy",
+          "sameAs": "https://gloriousartacademy.com"
+        }
+      }
+    }))
+  }
+
   return (
     <PageWrapper>
-      {/* ── Hero Banner ───────────────────────────────────── */}
-      <section
-        className="pt-28 pb-16 px-4 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #fff1f2 0%, #f3e8ff 100%)' }}
-      >
-        <div className="absolute top-0 right-0 w-72 h-72 rounded-full opacity-20 blur-3xl" style={{ background: '#fda4af' }} />
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <motion.p
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-vibes text-5xl text-rose-400 mb-2"
-          >
-            Learn & Grow
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="font-playfair text-4xl md:text-5xl font-bold mb-4"
-            style={{ color: '#1a1a2e' }}
-          >
-            Our <span className="gradient-text">Courses</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-gray-500 font-inter max-w-xl mx-auto mb-6"
-          >
-            Transform your passion into a profession with our expert-led, certification-backed courses.
-          </motion.p>
+      <SEO 
+        title="Professional Aari & Tailoring Courses in Chidambaram" 
+        description="Browse our master catalog of fashion arts. From Aari embroidery to bridal makeup, get certified by Chidambaram's top-rated academy."
+        url="/courses"
+        schema={coursesSchema}
+      />
 
-          {/* Summer banner */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3 }}
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full font-inter text-sm font-bold"
-            style={{ background: 'linear-gradient(135deg, #e11d48, #a855f7)', color: 'white', boxShadow: '0 8px 30px rgba(225,29,72,0.3)' }}
-          >
-            🌞 Summer Offer: First 30 Days FREE for New Enrollments!
-          </motion.div>
+      {/* ── Title Banner ─────────────────────────────────── */}
+      <section className="pt-32 pb-16 md:pt-48 md:pb-32 px-5 sm:px-8 bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-rose-100/40 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
+        <div className="container-custom relative z-10 text-center lg:text-left">
+          <div className="max-w-3xl">
+            <motion.span 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-rose-600 font-extrabold uppercase tracking-[0.4em] text-[10px] sm:text-xs mb-4 block"
+            >
+              Excellence in Arts
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-slate-900 leading-tight mb-8"
+            >
+              The Master <span className="gradient-text italic">Catalog</span>
+            </motion.h1>
+            
+            {/* Horizontal Filter - Scrollable on mobile */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-4 no-scrollbar -mx-5 px-5 lg:mx-0 lg:px-0">
+               {categories.map(cat => (
+                 <button
+                   key={cat}
+                   onClick={() => setActiveCategory(cat)}
+                   className={`whitespace-nowrap px-8 py-3 rounded-2xl text-[10px] font-extrabold uppercase tracking-widest transition-all ${
+                     activeCategory === cat 
+                     ? 'bg-slate-900 text-white shadow-xl' 
+                     : 'bg-white text-slate-500 hover:bg-rose-50 border border-slate-100'
+                   }`}
+                 >
+                   {cat}
+                 </button>
+               ))}
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── Courses Grid ──────────────────────────────────── */}
-      <section className="section-padding px-4 bg-white">
-        <div className="max-w-7xl mx-auto space-y-10">
-          {courses.map((c, i) => (
-            <motion.article
-              key={c.id}
-              id={`course-${c.id}`}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6 }}
-              className="rounded-3xl overflow-hidden shadow-lg group"
-              style={{ border: `1px solid ${c.accentLight}` }}
-            >
-              <div className={`grid grid-cols-1 ${i % 2 === 1 ? 'lg:grid-cols-[60%_40%]' : 'lg:grid-cols-[40%_60%]'}`}>
-                {/* Image — alternate sides */}
-                <div
-                  className={`relative overflow-hidden bg-gradient-to-br ${c.color} ${i % 2 === 1 ? 'order-last lg:order-first' : ''}`}
-                  style={{ minHeight: '300px' }}
-                >
-                  {c.img ? (
-                    <img
-                      src={c.img}
-                      alt={c.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 absolute inset-0"
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center h-full">
-                      <span className="text-8xl group-hover:scale-110 transition-transform duration-300">{c.emoji}</span>
+      <section className="py-16 pb-32 px-5 sm:px-8 bg-white min-h-[600px]">
+        <div className="container-custom">
+          <motion.div layout className="grid md:grid-cols-2 gap-10">
+             <AnimatePresence mode="popLayout">
+               {filtered.map((c, i) => (
+                 <motion.article
+                   key={c.id}
+                   layout
+                   initial={{ opacity: 0, y: 20 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   exit={{ opacity: 0, scale: 0.95 }}
+                   className="group bg-slate-50 rounded-[2.5rem] overflow-hidden border border-slate-100 flex flex-col sm:flex-row h-full hover:shadow-2xl transition-all duration-500"
+                 >
+                    {/* Visual Side */}
+                    <div className="w-full sm:w-[45%] relative aspect-square sm:aspect-auto min-h-[250px] overflow-hidden bg-slate-100">
+                       {c.img ? (
+                         <img src={c.img} alt={`Professional ${c.title} course at Glorious Art Academy Chidambaram`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 absolute inset-0" loading="lazy" decoding="async" />
+                       ) : (
+                         <div className="w-full h-full flex items-center justify-center text-7xl bg-white">{c.emoji}</div>
+                       )}
+                       <div className="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-2xl text-[10px] font-extrabold uppercase tracking-widest text-slate-900">
+                          {c.badge}
+                       </div>
                     </div>
-                  )}
-                  {/* Badge */}
-                  <div
-                    className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-bold font-inter text-white"
-                    style={{ background: c.accent }}
-                  >
-                    {c.badge}
-                  </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-8 lg:p-10 flex flex-col justify-center bg-white">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span
-                      className="text-xs font-bold font-inter uppercase tracking-widest px-3 py-1 rounded-full"
-                      style={{ background: c.accentLight, color: c.accent }}
-                    >
-                      {c.subtitle}
-                    </span>
-                  </div>
-                  <h2 className="font-playfair text-2xl md:text-3xl font-bold mb-3" style={{ color: '#1a1a2e' }}>
-                    {c.title}
-                  </h2>
-                  <p className="text-gray-500 font-inter text-sm leading-relaxed mb-4">{c.description}</p>
-
-                  {/* Meta */}
-                  <div className="flex flex-wrap gap-4 mb-5">
-                    <div className="flex items-center gap-1.5 text-sm text-gray-500 font-inter">
-                      <Clock size={15} style={{ color: c.accent }} />
-                      {c.duration}
-                    </div>
-                    <div className="flex items-center gap-1.5 text-sm text-gray-500 font-inter">
-                      <Users size={15} style={{ color: c.accent }} />
-                      {c.students} enrolled
-                    </div>
-                    <div className="flex items-center gap-1">
-                      {Array(5).fill(0).map((_, s) => (
-                        <Star key={s} size={13} fill={s < Math.floor(c.rating) ? '#f59e0b' : 'transparent'} className="text-amber-400" />
-                      ))}
-                      <span className="text-xs text-gray-400 font-inter ml-1">{c.rating}</span>
-                    </div>
-                  </div>
-
-                  {/* Features */}
-                  <div className="grid grid-cols-2 gap-2 mb-6">
-                    {c.features.map((f, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm text-gray-600 font-inter">
-                        <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0" style={{ background: c.accentLight }}>
-                          <span style={{ color: c.accent, fontSize: '10px' }}>✓</span>
+                    {/* Content Side */}
+                    <div className="w-full sm:w-[55%] p-8 lg:p-10 flex flex-col justify-between items-start bg-white">
+                      <div className="w-full">
+                        <span className="text-rose-500 text-[10px] font-bold uppercase tracking-widest mb-2 block">{c.category} Course</span>
+                        <h2 className="font-serif text-2xl lg:text-3xl font-bold text-slate-900 mb-4">{c.title}</h2>
+                        <p className="text-slate-500 text-sm font-medium leading-relaxed mb-6 line-clamp-2">{c.description}</p>
+                        
+                        <div className="flex flex-wrap gap-4 mb-8">
+                           <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-tight">
+                              <Clock size={16} className="text-rose-500" /> {c.duration}
+                           </div>
+                           <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-tight">
+                              <Users size={16} className="text-purple-500" /> {c.students} Trained
+                           </div>
                         </div>
-                        {f}
                       </div>
-                    ))}
-                  </div>
 
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-2 font-semibold font-inter px-6 py-3 rounded-full text-white transition-all hover:opacity-90 hover:shadow-lg self-start"
-                    style={{ background: `linear-gradient(135deg, ${c.accent}, ${c.accent}cc)`, boxShadow: `0 4px 20px ${c.accent}50` }}
-                  >
-                    Enroll in This Course <ChevronRight size={16} />
-                  </Link>
-                </div>
-              </div>
-            </motion.article>
-          ))}
+                      <Link 
+                        to={`/course/${c.id}`}
+                        className="btn-premium btn-gradient w-full py-4 text-[10px] uppercase tracking-widest text-center"
+                      >
+                        Explore Syllabus <ArrowRight size={16} />
+                      </Link>
+                    </div>
+                 </motion.article>
+               ))}
+             </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="py-16 px-4" style={{ background: 'linear-gradient(135deg, #fff1f2, #f3e8ff)' }}>
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-playfair text-3xl font-bold mb-3" style={{ color: '#1a1a2e' }}>
-              Not Sure Which Course? <span className="gradient-text">We'll Guide You!</span>
-            </h2>
-            <p className="text-gray-500 font-inter mb-6">Call or WhatsApp us and our experts will recommend the best course for you.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="gradient-btn text-white px-8 py-3 rounded-full font-semibold font-inter">
-                Get Free Consultation
-              </Link>
-              <a href="tel:+918072769642" className="px-8 py-3 rounded-full font-semibold font-inter border-2 text-rose-600 border-rose-300 hover:bg-rose-50 transition-colors">
-                📞 +91 80727 69642
-              </a>
-            </div>
-          </motion.div>
+      {/* ── Help CTA ──────────────────────────────────────── */}
+      <section className="py-24 px-5 sm:px-8 bg-slate-50">
+        <div className="container-custom">
+           <div className="glass-card rounded-[3rem] p-10 md:p-20 text-center border-white shadow- premium">
+              <ShieldCheck className="mx-auto text-rose-500 mb-8" size={56} />
+              <h2 className="font-serif text-3xl sm:text-6xl font-bold text-slate-900 mb-8 leading-tight">Need Career Advice?</h2>
+              <p className="text-slate-500 font-medium text-lg leading-relaxed max-w-xl mx-auto mb-12">
+                Our expert mentors in Chidambaram will help you choose the right creative path to build your future boutique.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                 <Link to="/contact" className="btn-premium btn-gradient w-full sm:w-auto px-12 text-center">
+                   Start Free Consultation <ArrowRight size={18} />
+                 </Link>
+                 <a href="tel:+918072769642" className="btn-premium btn-outline w-full sm:w-auto px-12 text-center">
+                   Call for Admission <Phone size={18} className="ml-2" />
+                 </a>
+              </div>
+           </div>
         </div>
       </section>
     </PageWrapper>
