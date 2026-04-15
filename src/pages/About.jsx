@@ -1,312 +1,162 @@
 import { motion } from 'framer-motion'
-import { Award, Wifi, School, Users, Heart, Star, CheckCircle } from 'lucide-react'
+import { Award, ShieldCheck, Heart, Star, Users, ArrowRight, Check } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PageWrapper from '../components/PageWrapper'
+import SEO from '../components/SEO'
 import aboutImg from '../assets/about.png'
-import heroImg from '../assets/hero.png'
 
-const values = [
-  { emoji: '💪', title: 'Women First', desc: 'We are dedicated exclusively to empowering women with skills that create financial independence.' },
-  { emoji: '🏆', title: 'Excellence', desc: 'We maintain the highest standards of teaching so every student masters their craft.' },
-  { emoji: '❤️', title: 'Community', desc: 'We build a supportive sisterhood where women lift each other up.' },
-  { emoji: '🎓', title: 'Certification', desc: 'All courses end with government-recognized certificates to kickstart your career.' },
-]
-
-const team = [
-  { name: 'Academy Director', role: 'Founder & Head Trainer', emoji: '👩‍💼', desc: 'With 10+ years experience in fashion and embroidery, our founder built this academy with one mission: to make every woman self-sufficient.' },
-  { name: 'Makeup Artist', role: 'Beauty & Mehandi Trainer', emoji: '💄', desc: 'Certified professional makeup artist with expertise in bridal looks, skincare, and traditional mehndi designs.' },
-  { name: 'Fashion Designer', role: 'Tailoring Trainer', emoji: '✂️', desc: 'Fashion design graduate with a passion for teaching pattern-making, cutting, and garment construction.' },
-]
+const SectionTitle = ({ subtitle, title, description, center = false }) => (
+  <div className={`mb-12 md:mb-16 ${center ? 'text-center' : ''}`}>
+    <span className="text-rose-600 font-extrabold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-4 block">
+      {subtitle}
+    </span>
+    <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
+      {title}
+    </h2>
+    {description && (
+      <p className={`text-slate-500 font-medium text-base sm:text-lg leading-relaxed max-w-2xl ${center ? 'mx-auto' : ''}`}>
+        {description}
+      </p>
+    )}
+  </div>
+)
 
 export default function About() {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Glorious Art Academy",
+    "description": "Premium fashion and beauty academy in Chidambaram specializing in Aari embroidery and tailored fashion.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chidambaram",
+      "addressRegion": "Tamil Nadu"
+    }
+  }
+
   return (
     <PageWrapper>
-      {/* ── Hero Banner ───────────────────────────────────── */}
-      <section
-        className="pt-32 pb-20 px-4 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #fff1f2 0%, #f3e8ff 100%)' }}
-      >
-        <div className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-20 blur-3xl" style={{ background: '#fda4af' }} />
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 overflow-hidden">
-          <div>
-            <motion.p
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="font-vibes text-5xl text-rose-400 mb-2"
-            >
-              Our Story
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="font-playfair text-4xl md:text-5xl font-bold mb-5"
-              style={{ color: '#1a1a2e' }}
-            >
-              About <span className="gradient-text">Glorious Art Creations</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-gray-600 font-inter leading-relaxed mb-6"
-            >
-              Glorious Art Creations is a premier beauty and fashion designing academy based in Chidambaram, Tamil Nadu.
-              Founded with a heartfelt mission to empower women, we provide world-class skill training that transforms 
-              passion into profession.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="text-gray-600 font-inter leading-relaxed mb-8"
-            >
-              We offer both <strong className="text-rose-500">offline classes</strong> at our Chidambaram campus and 
-              <strong className="text-purple-500"> online training</strong> for students across Tamil Nadu and beyond. 
-              Every course ends with industry-recognized certification to help you launch your career.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Link to="/contact" className="gradient-btn text-white px-8 py-3 rounded-full font-semibold font-inter">
-                Join Our Academy
-              </Link>
-              <a href="tel:+918072769642" className="px-8 py-3 rounded-full font-semibold font-inter border-2 text-rose-600 border-rose-300 hover:bg-rose-50 transition-colors">
-                📞 Call Us
-              </a>
-            </motion.div>
-          </div>
+      <SEO 
+        title="About Our Fashion Academy | Expert Trainers in Chidambaram" 
+        description="Learn the history and mission of Glorious Art Academy. Providing master-level Aari embroidery and fashion tailoring for over 5 years."
+        url="/about"
+        schema={aboutSchema}
+      />
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="absolute -inset-3 rounded-3xl opacity-20" style={{ background: 'linear-gradient(135deg, #fda4af, #c084fc)' }} />
-            <img
-              src={aboutImg}
-              alt="Students at Glorious Art Creations"
-              className="relative rounded-3xl object-cover w-full shadow-2xl"
-              style={{ height: '400px' }}
-            />
-            {/* Floating card */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-              className="absolute -bottom-5 -left-5 card-glass rounded-2xl p-4 shadow-xl"
-            >
-              <div className="flex gap-1 mb-1">
-                {Array(5).fill(0).map((_, i) => (
-                  <Star key={i} size={14} fill="#f59e0b" className="text-amber-400" />
-                ))}
-              </div>
-              <p className="font-bold font-playfair text-lg gradient-text">500+ Women</p>
-              <p className="text-xs text-gray-500 font-inter">Trained & Empowered</p>
-            </motion.div>
-          </motion.div>
+      {/* ── Header ────────────────────────────────────────── */}
+      <section className="pt-32 pb-16 lg:pt-48 lg:pb-32 px-5 sm:px-8 bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-rose-100/40 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
+        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+             <div>
+                <SectionTitle 
+                  subtitle="Our Mission in Chidambaram"
+                  title="Empowering Women Through Skilled Artistry"
+                  description="Glorious Art Creations was founded with a single vision: to transform hidden creative talents into independent professional careers for the women of our temple city."
+                />
+                <div className="space-y-6 mb-10">
+                   <p className="text-slate-600 font-medium leading-relaxed italic">
+                     "We don't just teach stitches; we build confidence and create entrepreneurs."
+                   </p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-6">
+                   <Link to="/contact" className="btn-premium btn-gradient w-full sm:w-auto px-12 text-center">
+                     Join Our Academy <ArrowRight size={20} />
+                   </Link>
+                   <Link to="/courses" className="btn-premium btn-outline w-full sm:w-auto px-12 text-center">
+                     Explore Courses <ArrowRight size={20} />
+                   </Link>
+                </div>
+             </div>
+             <motion.div 
+               initial={{ opacity: 0, scale: 0.9 }}
+               animate={{ opacity: 1, scale: 1 }}
+               className="relative"
+             >
+                <div className="absolute -inset-4 bg-rose-200/30 rounded-[3rem] rotate-3" />
+                <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
+                   <img src={aboutImg} alt="Expert Aari Embroidery training in Chidambaram" className="w-full h-auto object-cover aspect-[4/5]" />
+                </div>
+             </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* ── Mission & Vision ──────────────────────────────── */}
-      <section className="section-padding px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {[
-              {
-                icon: <Heart size={28} />,
-                title: 'Our Mission',
-                text: 'To provide affordable, high-quality skill training that empowers women to achieve financial freedom and build successful careers in beauty, fashion, and arts.',
-                color: '#e11d48',
-                bg: '#fff1f2',
-              },
-              {
-                icon: <Star size={28} />,
-                title: 'Our Vision',
-                text: 'To become Tamil Nadu\'s most trusted academy for women\'s skill development — a place where every woman discovers her potential and builds her dream career.',
-                color: '#a855f7',
-                bg: '#f3e8ff',
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="rounded-3xl p-8"
-                style={{ background: item.bg, border: `1px solid ${item.color}20` }}
-              >
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
-                  style={{ background: item.color, color: '#fff' }}
-                >
-                  {item.icon}
-                </div>
-                <h3 className="font-playfair text-2xl font-bold mb-3" style={{ color: '#1a1a2e' }}>{item.title}</h3>
-                <p className="text-gray-600 font-inter leading-relaxed">{item.text}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Training Modes */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-3xl overflow-hidden shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #1a1a2e, #2d1b3d)' }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
-              {[
-                {
-                  icon: <School size={32} />,
-                  label: 'Offline Training',
-                  points: [
-                    'In-person classes at our Chidambaram campus',
-                    'Hands-on practice with real materials',
-                    'Direct trainer interaction & feedback',
-                    'Access to our equipment & tools',
-                    'Community of fellow learners',
-                  ],
-                  badge: '📍 Chidambaram Campus',
-                },
-                {
-                  icon: <Wifi size={32} />,
-                  label: 'Online Training',
-                  points: [
-                    'Learn from the comfort of your home',
-                    'Recorded & live sessions available',
-                    'WhatsApp group for support',
-                    'Downloadable resources & guides',
-                    'Same certification as offline',
-                  ],
-                  badge: '🌐 Anywhere in India',
-                },
-              ].map((mode, i) => (
-                <div key={i} className="p-8 md:p-10">
-                  <div className="text-rose-400 mb-4">{mode.icon}</div>
-                  <span className="text-xs font-bold font-inter text-purple-300 tracking-widest uppercase">{mode.badge}</span>
-                  <h3 className="font-playfair text-2xl font-bold text-white mb-4 mt-1">{mode.label}</h3>
-                  <ul className="space-y-3">
-                    {mode.points.map((p, j) => (
-                      <li key={j} className="flex items-start gap-3 text-gray-300 text-sm font-inter">
-                        <CheckCircle size={16} className="text-rose-400 mt-0.5 shrink-0" />
-                        {p}
-                      </li>
+      {/* ── Expert Instructor (GEO Improvement) ───────────────── */}
+      <section className="section-padding px-5 sm:px-8 bg-white">
+        <div className="container-custom">
+           <div className="grid lg:grid-cols-2 gap-20 items-center">
+              <div className="relative">
+                 <div className="aspect-[4/5] rounded-[4rem] bg-slate-100 overflow-hidden shadow-2xl">
+                    <div className="w-full h-full flex items-center justify-center text-slate-300">
+                       <Users size={120} strokeWidth={1} />
+                    </div>
+                 </div>
+                 <div className="absolute -bottom-10 -right-10 glass-effect p-8 rounded-[3rem] shadow-premium max-w-xs">
+                    <p className="font-vibes text-3xl text-rose-600 mb-2">Master Trainer</p>
+                    <p className="text-slate-900 font-bold leading-tight">10+ Years of Professional Boutique Experience</p>
+                 </div>
+              </div>
+              <div className="space-y-8">
+                 <SectionTitle 
+                   subtitle="The Expertise"
+                   title="Guided by <span className='gradient-text'>Industry Experts</span>"
+                   description="Our training programs are led by master artisans who have spent decades perfecting the craft of bridal embroidery and garment construction."
+                 />
+                 <ul className="space-y-4">
+                    {['Certified Professional Trainer', 'Expert in 50+ Aari stitches', 'Boutique Management Consultant', '100% Success Rate with Students'].map(point => (
+                       <li key={point} className="flex items-center gap-4 text-slate-600 font-bold">
+                          <Check className="text-green-500" size={20} /> {point}
+                       </li>
                     ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── Our Values ────────────────────────────────────── */}
-      <section className="section-padding px-4" style={{ background: 'linear-gradient(135deg, #fff1f2, #f3e8ff)' }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="font-vibes text-4xl text-rose-400 mb-2">What Drives Us</p>
-            <h2 className="font-playfair text-3xl md:text-4xl font-bold" style={{ color: '#1a1a2e' }}>
-              Our Core <span className="gradient-text">Values</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((v, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{ y: -6 }}
-                className="card-glass rounded-3xl p-6 text-center"
-              >
-                <span className="text-5xl block mb-4">{v.emoji}</span>
-                <h3 className="font-playfair text-lg font-bold mb-2" style={{ color: '#1a1a2e' }}>{v.title}</h3>
-                <p className="text-gray-500 font-inter text-sm leading-relaxed">{v.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Certification ─────────────────────────────────── */}
-      <section className="section-padding px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <p className="font-vibes text-4xl text-rose-400 mb-2">Recognition</p>
-              <h2 className="font-playfair text-3xl font-bold mb-4" style={{ color: '#1a1a2e' }}>
-                Industry–Recognized <span className="gradient-text">Certification</span>
-              </h2>
-              <p className="text-gray-600 font-inter leading-relaxed mb-6">
-                Every student who successfully completes a course at Glorious Art Creations receives an official certificate. 
-                Our certifications are recognized by industry professionals and can help you start your own business or find employment.
-              </p>
-              <ul className="space-y-3">
-                {[
-                  'Certificate of Completion for each course',
-                  'Signed by Academy Director',
-                  'Include course details and duration',
-                  'Verifiable credentials for employers',
-                  'Lifetime validity',
-                ].map((p, i) => (
-                  <li key={i} className="flex items-center gap-3 text-gray-600 font-inter text-sm">
-                    <Award size={16} className="text-rose-500 shrink-0" />
-                    {p}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex justify-center"
-            >
-              <div
-                className="w-72 h-72 rounded-full flex items-center justify-center relative"
-                style={{ background: 'linear-gradient(135deg, #fff1f2, #f3e8ff)' }}
-              >
-                <div
-                  className="w-56 h-56 rounded-full flex flex-col items-center justify-center text-center"
-                  style={{ background: 'linear-gradient(135deg, #e11d48, #a855f7)', boxShadow: '0 20px 60px rgba(225,29,72,0.4)' }}
-                >
-                  <Award size={40} className="text-white mb-2" />
-                  <p className="font-playfair text-white text-xl font-bold">Certified</p>
-                  <p className="font-inter text-rose-200 text-xs mt-1">All Courses</p>
-                </div>
-                {/* Orbiting emoji */}
-                {['🌸', '⭐', '🎀', '✨'].map((e, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute text-2xl"
-                    animate={{ rotate: 360 }}
-                    transition={{ repeat: Infinity, duration: 8, ease: 'linear', delay: i * 2 }}
-                    style={{
-                      transformOrigin: '144px center',
-                      top: '50%',
-                      left: '50%',
-                      marginTop: '-16px',
-                      marginLeft: `-${144 + 16}px`,
-                      rotate: `${i * 90}deg`,
-                    }}
-                  >
-                    {e}
-                  </motion.div>
-                ))}
+                 </ul>
               </div>
-            </motion.div>
+           </div>
+        </div>
+      </section>
+
+      {/* ── Values ────────────────────────────────────────── */}
+      <section className="section-padding px-5 sm:px-8 bg-slate-50">
+        <div className="container-custom">
+          <SectionTitle subtitle="Core Academy Values" title="The Pillars of Our Success" center />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+             {[
+               { icon: <Heart />, title: 'Women-Centric', desc: 'Focusing exclusively on skills that build financial independence for women in Chidambaram.' },
+               { icon: <Star />, title: 'Quality First', desc: 'Masters-level training from basic needlework to advanced bridal blouse designs.' },
+               { icon: <ShieldCheck />, title: 'Govt Certified', desc: 'Official recognition for every professional course you successfully complete.' },
+               { icon: <Users />, title: 'Alumni Network', desc: 'A supportive community of 500+ successful graduates and business owners.' }
+             ].map((v, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="p-8 rounded-[2rem] bg-white border border-slate-100 hover:shadow-xl transition-all"
+                >
+                   <div className="w-12 h-12 rounded-2xl bg-rose-600/10 text-rose-600 flex items-center justify-center mb-6">
+                      {v.icon}
+                   </div>
+                   <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">{v.title}</h3>
+                   <p className="text-slate-500 text-sm font-medium leading-relaxed">{v.desc}</p>
+                </motion.div>
+             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Final Call ────────────────────────────────────── */}
+      <section className="py-24 px-5 sm:px-8">
+        <div className="container-custom">
+           <div className="bg-slate-900 rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-rose-600/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+              <div className="relative z-10">
+                 <h2 className="font-serif text-3xl sm:text-6xl font-bold text-white mb-10 leading-tight">Be Our Next <span className="text-rose-400">Success Story</span></h2>
+                  <Link to="/contact" className="btn-premium btn-gradient w-full sm:w-auto px-16 text-center">
+                    Enroll Today <ArrowRight size={22} />
+                  </Link>
+              </div>
+           </div>
         </div>
       </section>
     </PageWrapper>

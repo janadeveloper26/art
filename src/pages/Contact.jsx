@@ -1,373 +1,160 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { MapPin, Phone, Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { useSearchParams } from 'react-router-dom'
 import PageWrapper from '../components/PageWrapper'
-
-const courses = [
-  'Aari Embroidery (Basic)',
-  'Aari Embroidery (Advanced)',
-  'Tailoring & Fashion Designing',
-  'Beauty & Makeup',
-  'Mehandi / Henna',
-  'Craft Courses',
-  '30 Days Free Course (Summer)',
-  'Not sure yet — Help me choose',
-]
+import { MapPin, Phone, Mail, Clock, MessageCircle, Send, ArrowRight } from 'lucide-react'
+import SEO from '../components/SEO'
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', phone: '', course: '' })
-  const [status, setStatus] = useState(null) // null | 'success' | 'error'
-  const [sending, setSending] = useState(false)
-
-  const handleChange = e => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    if (!form.name || !form.phone) {
-      setStatus('error')
-      return
-    }
-    setSending(true)
-    // Simulate submit (no backend)
-    setTimeout(() => {
-      setSending(false)
-      setStatus('success')
-      setForm({ name: '', phone: '', course: '' })
-    }, 1500)
-  }
-
-  const whatsappMessage = encodeURIComponent(
-    `Hello Glorious Art Creations! 🌸\n\nI'm interested in enrolling.\nName: ${form.name || 'Interested Student'}\nPhone: ${form.phone || '-'}\nCourse: ${form.course || 'To be decided'}`
-  )
+  const [searchParams] = useSearchParams()
+  const selectedCourse = searchParams.get('course') || ''
 
   return (
     <PageWrapper>
-      {/* ── Hero Banner ───────────────────────────────────── */}
-      <section
-        className="pt-32 pb-16 px-4 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #fff1f2 0%, #f3e8ff 100%)' }}
-      >
-        <div className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-20 blur-3xl" style={{ background: '#fda4af' }} />
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <motion.p
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-vibes text-5xl text-rose-400 mb-2"
-          >
-            Get In Touch
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="font-playfair text-4xl md:text-5xl font-bold mb-4"
-            style={{ color: '#1a1a2e' }}
-          >
-            Contact <span className="gradient-text">Us</span>
-          </motion.h1>
-          <motion.p
+      <SEO 
+        title="Contact Admissions | Enroll at Glorious Art Academy" 
+        description="Ready to start your creative career? Contact Glorious Art Academy in Chidambaram for admission details, course fees, and schedule information."
+        url="/contact"
+      />
+      
+      {/* ── Title Banner ─────────────────────────────────── */}
+      <section className="pt-32 pb-16 lg:pt-48 lg:pb-32 px-5 sm:px-8 bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-rose-100/40 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
+        <div className="container-custom relative z-10 text-center lg:text-left">
+          <motion.span 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-gray-500 font-inter max-w-lg mx-auto"
+            className="text-rose-600 font-extrabold uppercase tracking-[.4em] text-[10px] sm:text-xs mb-4 block"
           >
-            Ready to start your journey? Reach out to us — we respond within one business day.
-          </motion.p>
-
-          {/* Summer Offer Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3 }}
-            className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full font-inter text-sm font-bold"
-            style={{ background: 'linear-gradient(135deg, #e11d48, #a855f7)', color: 'white', boxShadow: '0 8px 30px rgba(225,29,72,0.3)' }}
+            Get In Touch
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-slate-900 leading-tight mb-8"
           >
-            🌞 Summer Offer: 30 Days FREE for New Students!
-          </motion.div>
+            Contact <span className="gradient-text italic">Admissions</span>
+          </motion.h1>
+          <p className="text-slate-500 font-medium text-lg leading-relaxed max-w-xl">
+             We're here to help you choose the perfect creative path. Reach out to us for admission details, fees, or course schedules.
+          </p>
         </div>
       </section>
 
-      {/* ── Contact Grid ──────────────────────────────────── */}
-      <section className="section-padding px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left: Info */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="space-y-6"
-            >
-              {/* Address */}
-              <div
-                className="rounded-3xl p-6 flex gap-4"
-                style={{ background: 'linear-gradient(135deg, #fff1f2, #ffe4e6)', border: '1px solid rgba(225,29,72,0.1)' }}
-              >
-                <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0"
-                  style={{ background: 'linear-gradient(135deg, #e11d48, #be123c)' }}
-                >
-                  <MapPin size={22} className="text-white" />
-                </div>
-                <div>
-                  <h3 className="font-playfair font-bold text-lg mb-1" style={{ color: '#1a1a2e' }}>Our Location</h3>
-                  <p className="text-gray-600 font-inter text-sm leading-relaxed">
-                    1st Floor, No 8A/2, Umaiyal Lane,<br />
-                    Chidambaram, Tamil Nadu
-                  </p>
-                  <a
-                    href="https://maps.google.com/?q=Chidambaram+Tamil+Nadu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-rose-500 text-sm font-inter font-semibold hover:text-rose-600 mt-1 inline-block"
-                  >
-                    Get Directions →
-                  </a>
-                </div>
-              </div>
+      {/* ── Main Content ──────────────────────────────────── */}
+      <section className="section-padding px-5 sm:px-8 bg-white">
+        <div className="container-custom">
+           <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
+              
+              {/* Info Column */}
+              <div className="lg:col-span-5 space-y-12">
+                 <div className="space-y-4">
+                    <h2 className="font-serif text-3xl font-bold text-slate-900">Information</h2>
+                    <p className="text-slate-500 font-medium">Located conveniently at the heart of the temple city, Chidambaram.</p>
+                 </div>
 
-              {/* Phone */}
-              <div
-                className="rounded-3xl p-6 flex gap-4"
-                style={{ background: 'linear-gradient(135deg, #f3e8ff, #ede9fe)', border: '1px solid rgba(168,85,247,0.1)' }}
-              >
-                <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0"
-                  style={{ background: 'linear-gradient(135deg, #a855f7, #7e22ce)' }}
-                >
-                  <Phone size={22} className="text-white" />
-                </div>
-                <div>
-                  <h3 className="font-playfair font-bold text-lg mb-1" style={{ color: '#1a1a2e' }}>Call Us</h3>
-                  <a href="tel:+918072769642" className="text-gray-600 font-inter text-sm block hover:text-purple-600 transition-colors">
-                    +91 80727 69642
-                  </a>
-                  <a href="tel:+917339533550" className="text-gray-600 font-inter text-sm block hover:text-purple-600 transition-colors">
-                    +91 73395 33550
-                  </a>
-                  <p className="text-gray-400 font-inter text-xs mt-1">Mon–Sat, 9am–7pm IST</p>
-                </div>
-              </div>
-
-              {/* WhatsApp CTA */}
-              <motion.a
-                href={`https://wa.me/918072769642?text=${whatsappMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex items-center gap-4 rounded-3xl p-6 transition-all"
-                style={{ background: 'linear-gradient(135deg, #25D366, #128C7E)', boxShadow: '0 8px 30px rgba(37,211,102,0.3)' }}
-              >
-                <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
-                  <svg viewBox="0 0 24 24" width="26" height="26" fill="white">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.520-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.570-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-white font-playfair font-bold text-lg">Chat on WhatsApp</p>
-                  <p className="text-green-100 font-inter text-sm">Click to start a conversation instantly</p>
-                </div>
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" className="ml-auto shrink-0 w-5 h-5">
-                  <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </motion.a>
-
-              {/* Timing */}
-              <div className="rounded-3xl p-5" style={{ background: '#f9fafb', border: '1px solid #f3f4f6' }}>
-                <h4 className="font-playfair font-semibold mb-3 text-gray-700">Academy Hours</h4>
-                <div className="space-y-2">
-                  {[
-                    { day: 'Monday – Saturday', time: '9:00 AM – 7:00 PM' },
-                    { day: 'Sunday', time: 'By Appointment Only' },
-                  ].map((h, i) => (
-                    <div key={i} className="flex justify-between text-sm font-inter">
-                      <span className="text-gray-600">{h.day}</span>
-                      <span className="font-semibold text-rose-500">{h.time}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right: Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <form
-                onSubmit={handleSubmit}
-                className="rounded-3xl p-8 shadow-lg"
-                style={{ background: 'linear-gradient(135deg, #fff1f2 0%, #fdf4ff 100%)', border: '1px solid rgba(225,29,72,0.1)' }}
-              >
-                <h2 className="font-playfair text-2xl font-bold mb-1" style={{ color: '#1a1a2e' }}>
-                  Enroll / Enquire
-                </h2>
-                <p className="text-gray-500 font-inter text-sm mb-6">Fill in your details and we'll get back to you within 24 hours.</p>
-
-                {/* Name */}
-                <div className="mb-5">
-                  <label htmlFor="contact-name" className="block text-sm font-semibold font-inter text-gray-700 mb-2">
-                    Full Name <span className="text-rose-500">*</span>
-                  </label>
-                  <input
-                    id="contact-name"
-                    name="name"
-                    type="text"
-                    required
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder="Your name"
-                    className="w-full px-4 py-3 rounded-2xl font-inter text-sm text-gray-800 outline-none transition-all"
-                    style={{
-                      background: 'white',
-                      border: '2px solid rgba(225,29,72,0.15)',
-                      boxShadow: '0 2px 8px rgba(225,29,72,0.05)',
-                    }}
-                    onFocus={e => (e.target.style.borderColor = '#e11d48')}
-                    onBlur={e => (e.target.style.borderColor = 'rgba(225,29,72,0.15)')}
-                  />
-                </div>
-
-                {/* Phone */}
-                <div className="mb-5">
-                  <label htmlFor="contact-phone" className="block text-sm font-semibold font-inter text-gray-700 mb-2">
-                    Phone Number <span className="text-rose-500">*</span>
-                  </label>
-                  <input
-                    id="contact-phone"
-                    name="phone"
-                    type="tel"
-                    required
-                    value={form.phone}
-                    onChange={handleChange}
-                    placeholder="+91 XXXXX XXXXX"
-                    className="w-full px-4 py-3 rounded-2xl font-inter text-sm text-gray-800 outline-none transition-all"
-                    style={{
-                      background: 'white',
-                      border: '2px solid rgba(225,29,72,0.15)',
-                      boxShadow: '0 2px 8px rgba(225,29,72,0.05)',
-                    }}
-                    onFocus={e => (e.target.style.borderColor = '#e11d48')}
-                    onBlur={e => (e.target.style.borderColor = 'rgba(225,29,72,0.15)')}
-                  />
-                </div>
-
-                {/* Course */}
-                <div className="mb-6">
-                  <label htmlFor="contact-course" className="block text-sm font-semibold font-inter text-gray-700 mb-2">
-                    Course Interested In
-                  </label>
-                  <select
-                    id="contact-course"
-                    name="course"
-                    value={form.course}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-2xl font-inter text-sm text-gray-800 outline-none transition-all appearance-none"
-                    style={{
-                      background: 'white',
-                      border: '2px solid rgba(225,29,72,0.15)',
-                      boxShadow: '0 2px 8px rgba(225,29,72,0.05)',
-                    }}
-                    onFocus={e => (e.target.style.borderColor = '#e11d48')}
-                    onBlur={e => (e.target.style.borderColor = 'rgba(225,29,72,0.15)')}
-                  >
-                    <option value="">Select a course...</option>
-                    {courses.map(c => (
-                      <option key={c} value={c}>{c}</option>
+                 <div className="space-y-8">
+                    {[
+                      { icon: <MapPin />, title: 'Our Campus', text: 'West Car Street, Chidambaram, Tamil Nadu, 608001' },
+                      { icon: <Phone />, title: 'Direct Line', text: '+91 80727 69642' },
+                      { icon: <Mail />, title: 'Email Support', text: 'gloriousart.creations@gmail.com' },
+                      { icon: <Clock />, title: 'Business Hours', text: 'Mon-Sat: 9:00 AM - 6:00 PM' }
+                    ].map((item, i) => (
+                       <motion.div 
+                         key={i}
+                         initial={{ opacity: 0, x: -20 }}
+                         whileInView={{ opacity: 1, x: 0 }}
+                         viewport={{ once: true }}
+                         transition={{ delay: i * 0.1 }}
+                         className="flex gap-6 items-start"
+                       >
+                          <div className="w-12 h-12 rounded-2xl bg-slate-50 text-rose-600 flex items-center justify-center shrink-0 border border-slate-100 shadow-sm">
+                             {item.icon}
+                          </div>
+                          <div>
+                             <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
+                             <p className="text-slate-500 font-medium text-sm leading-relaxed">{item.text}</p>
+                          </div>
+                       </motion.div>
                     ))}
-                  </select>
-                </div>
+                 </div>
 
-                {/* Status messages */}
-                {status === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-2 mb-4 p-3 rounded-xl text-sm font-inter text-green-700"
-                    style={{ background: '#dcfce7', border: '1px solid #86efac' }}
-                  >
-                    <CheckCircle size={16} />
-                    Thank you! We'll contact you soon. 🌸
-                  </motion.div>
-                )}
-                {status === 'error' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-2 mb-4 p-3 rounded-xl text-sm font-inter text-rose-700"
-                    style={{ background: '#fff1f2', border: '1px solid #fda4af' }}
-                  >
-                    <AlertCircle size={16} />
-                    Please fill in your name and phone number.
-                  </motion.div>
-                )}
+                 {/* WhatsApp CTA */}
+                 <div className="p-8 rounded-[2.5rem] bg-linear-to-br from-green-50 to-teal-50 border border-green-100 flex flex-col sm:flex-row gap-6 items-center">
+                    <div className="w-16 h-16 rounded-3xl bg-green-500 text-white flex items-center justify-center shrink-0 shadow-xl shadow-green-200">
+                       <MessageCircle size={32} />
+                    </div>
+                    <div className="text-center sm:text-left">
+                       <p className="font-bold text-slate-900">Instant Chat</p>
+                       <p className="text-xs text-slate-500 mb-4">Start a conversation on WhatsApp for quick replies.</p>
+                       <a 
+                        href="https://wa.me/918072769642" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-green-600 font-extrabold uppercase tracking-widest text-[10px] items-center gap-2 inline-flex hover:translate-x-1 transition-transform"
+                       >
+                         Chat Now <ArrowRight size={14} />
+                       </a>
+                    </div>
+                 </div>
+              </div>
 
-                {/* Submit */}
-                <button
-                  type="submit"
-                  id="contact-submit-btn"
-                  disabled={sending}
-                  className="w-full gradient-btn text-white py-4 rounded-2xl font-semibold font-inter flex items-center justify-center gap-2 disabled:opacity-70"
-                >
-                  {sending ? (
-                    <span className="flex items-center gap-2">
-                      <div
-                        className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
-                        style={{ animation: 'loader-spin 0.7s linear infinite' }}
-                      />
-                      Sending...
-                    </span>
-                  ) : (
-                    <>
-                      <Send size={16} /> Send Enquiry
-                    </>
-                  )}
-                </button>
+              {/* Form Column */}
+              <div className="lg:col-span-7">
+                 <div className="glass-card rounded-[3rem] p-8 sm:p-12 md:p-16 relative shadow-premium bg-white">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-purple-100 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                    
+                    <h3 className="font-serif text-2xl font-bold text-slate-900 mb-10">Enrollment Inquiry</h3>
+                    <form className="space-y-6 relative z-10">
+                       <div className="grid sm:grid-cols-2 gap-6">
+                          <div className="space-y-2">
+                             <label className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 ml-4">Full Name</label>
+                             <input type="text" placeholder="Your Name" className="w-full h-16 px-8 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-rose-400 focus:outline-hidden transition-all text-slate-900 font-medium" />
+                          </div>
+                          <div className="space-y-2">
+                             <label className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 ml-4">Mobile Number</label>
+                             <input type="tel" placeholder="+91 00000 00000" className="w-full h-16 px-8 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-rose-400 focus:outline-hidden transition-all text-slate-900 font-medium" />
+                          </div>
+                       </div>
+                       
+                       <div className="space-y-2">
+                          <label className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 ml-4">Interested Course</label>
+                          <select 
+                            defaultValue={selectedCourse}
+                            className="w-full h-16 px-8 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-rose-400 focus:outline-hidden transition-all text-slate-900 font-medium appearance-none cursor-pointer"
+                          >
+                             <option value="">Select a Course</option>
+                             <option value="aari">Aari Embroidery</option>
+                             <option value="tailoring">Tailoring & Fashion</option>
+                             <option value="makeup">Makeup Artistry</option>
+                             <option value="crafts">Creative Crafts</option>
+                          </select>
+                       </div>
 
-                <p className="text-center text-xs text-gray-400 font-inter mt-3">
-                  Or WhatsApp us directly — we reply fast! 💬
-                </p>
-              </form>
-            </motion.div>
-          </div>
+                       <div className="space-y-2">
+                          <label className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 ml-4">Your Message</label>
+                          <textarea placeholder="Tell us about your learning goals..." className="w-full min-h-[160px] p-8 rounded-[2rem] bg-slate-50 border border-slate-100 focus:bg-white focus:border-rose-400 focus:outline-hidden transition-all text-slate-900 font-medium resize-none"></textarea>
+                       </div>
+
+                       <button type="submit" className="btn-premium btn-gradient w-full py-5 text-base">
+                          Send Request <Send size={20} />
+                       </button>
+                    </form>
+                 </div>
+              </div>
+
+           </div>
         </div>
       </section>
 
-      {/* ── Google Map ────────────────────────────────────── */}
-      <section className="px-4 pb-16">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-3xl overflow-hidden shadow-xl"
-            style={{ border: '1px solid rgba(225,29,72,0.1)' }}
-          >
-            <div
-              className="px-6 py-4 flex items-center gap-3"
-              style={{ background: 'linear-gradient(135deg, #fff1f2, #f3e8ff)' }}
-            >
-              <MapPin size={20} className="text-rose-500" />
-              <div>
-                <p className="font-playfair font-semibold text-gray-800">Find Us on the Map</p>
-                <p className="text-xs text-gray-500 font-inter">1st Floor, No 8A/2, Umaiyal Lane, Chidambaram, Tamil Nadu</p>
+      {/* Map Placeholder */}
+      <section className="py-20 px-5 sm:px-8 bg-slate-50">
+        <div className="container-custom">
+           <div className="h-[400px] w-full rounded-[3rem] bg-slate-200 relative overflow-hidden flex items-center justify-center">
+              <div className="text-center">
+                 <MapPin size={48} className="text-slate-400 mx-auto mb-4" />
+                 <p className="font-bold text-slate-400 uppercase tracking-widest text-xs">Interactive Map Loading...</p>
               </div>
-            </div>
-            <iframe
-              title="Glorious Art Creations Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125476.56!2d79.6917!3d11.3993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a54f178be2f9da3%3A0x2f53aabe5e3e2e80!2sChidambaram%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1681876000000"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </motion.div>
+           </div>
         </div>
       </section>
     </PageWrapper>
