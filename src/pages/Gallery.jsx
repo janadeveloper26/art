@@ -1,214 +1,123 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import PageWrapper from '../components/PageWrapper'
+import { Plus } from 'lucide-react'
+import SEO from '../components/SEO'
+
+// Assets
+import heroImg from '../assets/hero.png'
 import aariImg from '../assets/aari.png'
 import tailoringImg from '../assets/tailoring.png'
 import makeupImg from '../assets/makeup.png'
-import aboutImg from '../assets/about.png'
-import heroImg from '../assets/hero.png'
 
-// Gallery items — using available local images + themed placeholders
-const galleryItems = [
-  { id: 1, img: aariImg, title: 'Aari Embroidery', category: 'embroidery', desc: 'Intricate gold zari and silk thread work' },
-  { id: 2, img: tailoringImg, title: 'Fashion Design', category: 'tailoring', desc: 'Churidar stitching masterclass' },
-  { id: 3, img: makeupImg, title: 'Bridal Makeup', category: 'makeup', desc: 'Full bridal look by our student' },
-  { id: 4, img: aboutImg, title: 'Workshop Session', category: 'events', desc: 'Students during hands-on class' },
-  { id: 5, img: heroImg, title: 'Embroidery Art', category: 'embroidery', desc: 'Advanced aari embroidery blouse' },
-  { id: 6, img: aariImg, title: 'Zari Work', category: 'embroidery', desc: 'Gold zari border detail work' },
-  { id: 7, img: tailoringImg, title: 'Fabric Design', category: 'tailoring', desc: 'Designer fabric cutting session' },
-  { id: 8, img: makeupImg, title: 'Mehandi Art', category: 'mehandi', desc: 'Bridal mehandi design by student' },
-  { id: 9, img: aboutImg, title: 'Craft Creation', category: 'crafts', desc: 'Handmade tassel and brooch work' },
-  { id: 10, img: heroImg, title: 'Student Work', category: 'embroidery', desc: 'Completed student project showcase' },
-  { id: 11, img: aariImg, title: 'Thread Art', category: 'embroidery', desc: 'Colourful silk thread patterns' },
-  { id: 12, img: makeupImg, title: 'Glam Look', category: 'makeup', desc: 'Party makeup by our student' },
+const InstagramIcon = ({ size = 24 }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+)
+
+const items = [
+  { img: aariImg, title: 'Bridal Embroidery', cat: 'Student Work', alt: 'Intricate Aari embroidery bridal work by student' },
+  { img: tailoringImg, title: 'Designer Blouse', cat: 'Masterclass', alt: 'Professional designer blouse tailoring in Chidambaram' },
+  { img: makeupImg, title: 'Bridal Glam', cat: 'Professional', alt: 'Bridal makeup artistry by expert student' },
+  { img: heroImg, title: 'Fashion Design', cat: 'Aesthetics', alt: 'Advanced fashion designing student project' },
+  { img: aariImg, title: 'Silk Work', cat: 'Embroidery', alt: 'Silk thread Aari embroidery detailing' },
+  { img: tailoringImg, title: 'Boutique Collection', cat: 'Student Work', alt: 'Boutique collection displayed at Glorious Art' },
 ]
 
-const categories = ['all', 'embroidery', 'tailoring', 'makeup', 'mehandi', 'crafts', 'events']
-
 export default function Gallery() {
-  const [active, setActive] = useState('all')
-  const [selected, setSelected] = useState(null)
-
-  const filtered = active === 'all' ? galleryItems : galleryItems.filter(i => i.category === active)
-
   return (
     <PageWrapper>
-      {/* ── Hero ──────────────────────────────────────────── */}
-      <section
-        className="pt-32 pb-16 px-4 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #fff1f2 0%, #f3e8ff 100%)' }}
-      >
-        <div className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-20 blur-3xl" style={{ background: '#fda4af' }} />
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <motion.p
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-vibes text-5xl text-rose-400 mb-2"
+      <SEO 
+        title="Student Work Portfolio | Art & Fashion Gallery Chidambaram" 
+        description="Explore the stunning portfolio of our students. From professional Aari embroidery to designer tailoring, see why we are Chidambaram's #1 academy."
+        url="/gallery"
+      />
+
+      <section className="pt-32 pb-16 lg:pt-48 lg:pb-32 px-5 sm:px-8 bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-rose-100/40 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
+        <div className="container-custom relative z-10 text-center lg:text-left">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-rose-600 font-extrabold uppercase tracking-[0.4em] text-[10px] sm:text-xs mb-4 block"
           >
-            Student Works
-          </motion.p>
-          <motion.h1
+            Visual Showcase
+          </motion.span>
+          <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="font-playfair text-4xl md:text-5xl font-bold mb-4"
-            style={{ color: '#1a1a2e' }}
+            className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-slate-900 leading-tight mb-8"
           >
-            Our <span className="gradient-text">Gallery</span>
+            The Art <span className="gradient-text italic">Portfolio</span>
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-gray-500 font-inter max-w-lg mx-auto"
-          >
-            Explore the beautiful creations by our talented students — from embroidery to bridal makeup.
-          </motion.p>
+          <p className="text-slate-500 font-medium text-lg leading-relaxed max-w-xl">
+            A glimpse into the creativity and precision of our students and trainers in Chidambaram. Every piece tells a story of dedication and skill.
+          </p>
         </div>
       </section>
 
-      {/* ── Filter Tabs ───────────────────────────────────── */}
-      <section className="bg-white sticky top-16 md:top-20 z-30 border-b border-rose-100 py-4 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => setActive(cat)}
-                className="shrink-0 px-5 py-2 rounded-full text-sm font-medium font-inter capitalize transition-all duration-200"
-                style={
-                  active === cat
-                    ? {
-                        background: 'linear-gradient(135deg, #e11d48, #a855f7)',
-                        color: 'white',
-                        boxShadow: '0 4px 15px rgba(225,29,72,0.3)',
-                      }
-                    : {
-                        background: '#f9fafb',
-                        color: '#6b7280',
-                        border: '1px solid #e5e7eb',
-                      }
-                }
-              >
-                {cat === 'all' ? '✨ All Works' : cat}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Grid ──────────────────────────────────────────── */}
-      <section className="section-padding px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            layout
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-          >
-            <AnimatePresence>
-              {filtered.map((item, i) => (
+      <section className="section-padding px-5 sm:px-8 bg-white">
+        <div className="container-custom">
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+              {items.map((item, i) => (
                 <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.4, delay: i * 0.04 }}
-                  whileHover={{ y: -4, zIndex: 10 }}
-                  className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-md"
-                  style={{ aspectRatio: i % 5 === 0 ? '1/1.4' : '1/1' }}
-                  onClick={() => setSelected(item)}
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="group relative overflow-hidden rounded-[2.5rem] bg-slate-100 cursor-pointer shadow-sm hover:shadow-2xl transition-all h-[400px]"
                 >
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  {/* Overlay */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4"
-                    style={{ background: 'linear-gradient(to top, rgba(225,29,72,0.85), rgba(168,85,247,0.4) 60%, transparent)' }}
-                  >
-                    <motion.div
-                      initial={{ y: 20, opacity: 0 }}
-                      whileHover={{ y: 0, opacity: 1 }}
-                    >
-                      <p className="text-white font-playfair font-semibold text-sm">{item.title}</p>
-                      <p className="text-rose-200 font-inter text-xs mt-0.5">{item.desc}</p>
-                    </motion.div>
-                  </div>
-
-                  {/* Category badge */}
-                  <div
-                    className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-xs font-inter font-semibold capitalize text-white opacity-90"
-                    style={{ background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(4px)' }}
-                  >
-                    {item.category}
-                  </div>
+                   <img src={item.img} alt={item.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                   <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                   
+                   <div className="absolute bottom-10 left-10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                      <span className="text-rose-400 text-[10px] font-extrabold uppercase tracking-widest">{item.cat}</span>
+                      <h3 className="text-white text-2xl font-serif font-bold mt-1">{item.title}</h3>
+                   </div>
+                   
+                   <div className="absolute top-10 right-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-rose-600 shadow-xl">
+                         <Plus size={24} />
+                      </div>
+                   </div>
                 </motion.div>
               ))}
-            </AnimatePresence>
-          </motion.div>
-
-          {filtered.length === 0 && (
-            <div className="text-center py-20 text-gray-400 font-inter">
-              <p className="text-4xl mb-3">🎨</p>
-              <p>No items found in this category.</p>
-            </div>
-          )}
+           </div>
         </div>
       </section>
 
-      {/* ── Lightbox ──────────────────────────────────────── */}
-      <AnimatePresence>
-        {selected && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-            style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)' }}
-            onClick={() => setSelected(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="relative max-w-2xl w-full rounded-3xl overflow-hidden shadow-2xl"
-              onClick={e => e.stopPropagation()}
-            >
-              <img src={selected.img} alt={selected.title} className="w-full object-cover max-h-[70vh]" />
-              <div className="p-5 bg-white">
-                <h3 className="font-playfair text-xl font-bold gradient-text">{selected.title}</h3>
-                <p className="text-gray-500 font-inter text-sm mt-1">{selected.desc}</p>
-                <p className="text-xs text-rose-400 uppercase font-inter font-semibold mt-1 tracking-widest capitalize">{selected.category}</p>
+      {/* Social Call */}
+      <section className="py-24 px-5 sm:px-8 bg-slate-50">
+        <div className="container-custom text-center">
+           <div className="glass-card rounded-[3rem] p-10 md:p-20 border-rose-100 text-center shadow-premium bg-white">
+              <div className="text-rose-500 mx-auto mb-8 flex justify-center">
+                <InstagramIcon size={48} />
               </div>
-              <button
-                onClick={() => setSelected(null)}
-                className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-rose-500 transition-colors text-lg"
-                aria-label="Close"
+              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-slate-900 mb-6 uppercase tracking-tight">Stay Inspired</h2>
+              <p className="text-slate-500 font-medium text-lg leading-relaxed max-w-xl mx-auto mb-10">
+                Follow our daily artistic journeys and student progress on Instagram. Get your daily dose of creative energy.
+              </p>
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn-premium btn-gradient w-full sm:w-auto px-12 text-center"
               >
-                ✕
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="py-16 px-4" style={{ background: 'linear-gradient(135deg, #fff1f2, #f3e8ff)' }}>
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-playfair text-3xl font-bold mb-3" style={{ color: '#1a1a2e' }}>
-              Want to Create Something <span className="gradient-text">Beautiful?</span>
-            </h2>
-            <p className="text-gray-500 font-inter mb-6">Enroll today and add your work to our growing gallery of talented students!</p>
-            <a
-              href="/contact"
-              className="gradient-btn text-white px-10 py-4 rounded-full font-semibold font-inter inline-flex items-center gap-2"
-            >
-              🌸 Enroll Now & Start Creating
-            </a>
-          </motion.div>
+                Follow @gloriousartcreations <InstagramIcon size={18} />
+              </a>
+           </div>
         </div>
       </section>
     </PageWrapper>
