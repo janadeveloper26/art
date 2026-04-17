@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gloriousartacademy.com/sitemap.xml
+Sitemap: https://gloriousartcreations.com/sitemap.xml
