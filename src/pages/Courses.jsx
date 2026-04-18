@@ -94,18 +94,6 @@ const coursesData = [
     rating: 4.7,
     description: 'Exquisite saree tassel designs, crochet kuchu, and designer bead work to enhance the beauty of any saree.',
     badge: '★ Creative'
-  },
-  {
-    id: 'crafts',
-    category: 'Crafts',
-    emoji: '🧶',
-    title: 'Brooches & 3D Art',
-    subtitle: 'Handmade Jewelry',
-    duration: '1 Month',
-    students: '180+',
-    rating: 4.7,
-    description: 'Learn to create stunning 3D brooches, silk thread jewelry, and handmade decorative items for festive occasions.',
-    badge: '★ Mini Course'
   }
 ]
 
