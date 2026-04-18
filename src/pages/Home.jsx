@@ -403,10 +403,7 @@ export default function Home() {
 
               <div className="grid sm:grid-cols-2 gap-8">
                 {[
-                  {
-                    title: "100% Job Guarantee",
-                    desc: "A complete skill training institute with guaranteed placement assistance.",
-                  },
+                  
                   {
                     title: "Daily & Weekend Batches",
                     desc: "Flexible timings designed for students, homemakers, and professionals.",
