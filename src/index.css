@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Great+Vibes&display=swap');
+@import "tailwindcss";
+@source "../src";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", "Plus Jakarta Sans", sans-serif;
+  --font-vibes: "Great Vibes", cursive;
+
+  --color-brand-primary: #e11d48;
+  --color-brand-secondary: #7e22ce;
+  --color-accent-rose: #fb7185;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    color: #0f172a;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    line-height: 1.2;
+  }
+}
+
+@layer utilities {
+  .container-custom {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding: 0 3rem;
+    }
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #e11d48 0%, #7e22ce 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .section-padding {
+    padding: 5rem 0;
+  }
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding: 8rem 0;
+    }
+  }
+
+  .premium-shadow {
+    box-shadow: 0 25px 50px -12px rgba(225, 29, 72, 0.12);
+  }
+
+  .urgency-banner {
+    @apply bg-linear-to-r from-rose-600 to-purple-700 text-white py-3 px-4 text-center font-bold text-sm tracking-wide;
+  }
+}
+
+/* ── Custom Button Component ── */
+.btn-premium {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.125rem 2.5rem;
+  border-radius: 1.25rem;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.btn-premium:active {
+  transform: scale(0.96);
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #e11d48, #7e22ce);
+  color: white;
+  box-shadow: 0 10px 30px -5px rgba(225, 29, 72, 0.3);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -8px rgba(225, 29, 72, 0.4);
+}
+
+.btn-outline {
+  background: white;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+}
+
+.btn-outline:hover {
+  border-color: #fecdd3;
+  color: #e11d48;
+  background: #fff1f2;
+  transform: translateY(-4px);
+}
+
+/* ── Smooth Animations ── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); opacity: 0.95; }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 30s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: heartbeat 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* ── Typography Styling ── */
+.heading-special {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .heading-special {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .heading-special {
+    font-size: 5.5rem;
+  }
+}
+
+.font-vibes { font-family: var(--font-vibes); }
+.font-serif { font-family: var(--font-serif); }
+.font-sans { font-family: var(--font-sans); }
