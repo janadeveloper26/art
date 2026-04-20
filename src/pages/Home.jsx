@@ -401,9 +401,8 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-8">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {[
-                  
                   {
                     title: "Daily & Weekend Batches",
                     desc: "Flexible timings designed for students, homemakers, and professionals.",
@@ -417,9 +416,9 @@ export default function Home() {
                     desc: "Expert consultation to start your own boutique or beauty studio.",
                   },
                 ].map((item, i) => (
-                  <div key={i} className="space-y-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-rose-400">
-                      <ShieldCheck size={20} />
+                  <div key={i} className="space-y-4 text-center md:text-left">
+                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-rose-400 mx-auto md:mx-0">
+                      <ShieldCheck size={24} />
                     </div>
                     <h4 className="text-white font-bold text-lg">
                       {item.title}
@@ -476,34 +475,30 @@ export default function Home() {
             title="Chidambaram's <span className='gradient-text'>Success Stories</span>"
             center
           />
-          <div className="grid md:grid-cols-3 gap-12">
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
                 {...fadeIn}
                 transition={{ delay: i * 0.1 }}
-                className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 relative group hover:bg-white hover:shadow-xl transition-all"
+                className="p-8 rounded-2xl bg-slate-50 border border-slate-200 text-center hover:bg-white hover:shadow-lg transition-all"
               >
-                <Quote
-                  className="text-rose-100 absolute top-10 right-10 group-hover:text-rose-200 transition-colors"
-                  size={60}
-                />
-                <div className="flex gap-1 text-amber-400 mb-6">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} size={14} fill="currentColor" />
-                  ))}
-                </div>
-                <p className="text-slate-600 font-medium leading-relaxed mb-8 relative z-10 italic">
-                  "{t.text}"
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-slate-200" />
-                  <div>
-                    <p className="font-bold text-slate-900">{t.name}</p>
-                    <p className="text-[10px] uppercase font-extrabold text-rose-500 tracking-widest">
-                      {t.role}
-                    </p>
+                <div className="space-y-4">
+                  <p className="font-serif font-bold text-slate-900 text-xl">
+                    {t.name}
+                  </p>
+                  <div className="flex justify-center gap-1 text-amber-400 mb-4">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <Star key={s} size={16} fill="currentColor" />
+                    ))}
                   </div>
+                  <p className="text-sm uppercase font-extrabold text-rose-500 tracking-wide">
+                    {t.role}
+                  </p>
+                  <p className="text-slate-600 font-medium text-sm leading-relaxed italic">
+                    "{t.text}"
+                  </p>
                 </div>
               </motion.div>
             ))}

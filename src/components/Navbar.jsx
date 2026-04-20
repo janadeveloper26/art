@@ -96,12 +96,17 @@ export default function Navbar() {
                   />
                 </div>
                 <div className="hidden xs:block sm:block">
-                  <p className="font-serif text-sm md:text-xl font-extrabold leading-none text-slate-900 group-hover:text-rose-600 transition-colors">
-                    Glorious Art
-                  </p>
-                  <p className="text-[8px] md:text-[10px] text-rose-500 tracking-[0.2em] font-extrabold uppercase mt-0.5 md:mt-1">
-                    Creations
-                  </p>
+                  <span className="font-serif text-sm md:text-lg font-extrabold leading-none text-slate-900 group-hover:text-rose-600 transition-colors block md:inline">
+                    Glorious Art Creations
+                  </span>
+                  <span className="block md:hidden">
+                    <span className="font-serif text-sm font-extrabold text-slate-900">
+                      Glorious Art
+                    </span>
+                    <span className="text-[8px] text-rose-500 tracking-[0.2em] font-extrabold uppercase">
+                      Creations
+                    </span>
+                  </span>
                 </div>
               </Link>
 

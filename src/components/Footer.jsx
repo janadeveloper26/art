@@ -29,19 +29,17 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-8 col-span-1 md:col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center p-1 shadow-sm">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl flex items-center justify-center p-1 shadow-sm shrink-0">
                 <img
                   src="/logo.png"
                   alt="Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div>
-                <p className="font-serif text-xl font-bold text-slate-900 leading-none">
-                  Glorious Art
-                </p>
-                <p className="text-[10px] text-rose-500 font-extrabold uppercase tracking-widest mt-1">
-                  Creations
+
+              <div className="flex-1">
+                <p className="font-serif font-bold text-slate-900 leading-none whitespace-nowrap text-[clamp(12px,4.2vw,20px)]">
+                  Glorious Art Creations
                 </p>
               </div>
             </Link>
