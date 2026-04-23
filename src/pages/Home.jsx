@@ -112,16 +112,16 @@ export default function Home() {
       category: "Professional",
       img: aariImg,
       tagline: "Proficient enchanting with threads",
-      duration: "35 Days - 6 Mos",
+      duration: "35 Days - 6 month",
       badge: "Professional",
     },
     {
       id: "tailoring",
-      title: "Fashion Tailoring",
+      title: "Tailoring",
       category: "Creative",
       img: tailoringImg,
       tagline: "Legacy elegance in every thread",
-      duration: "35 Days - 6 Mos",
+      duration: "35 Days - 6 month",
       badge: "Hot Choice",
     },
     {
@@ -241,7 +241,7 @@ export default function Home() {
                   transition={{ delay: 0.4, duration: 1 }}
                   className="text-slate-500 font-medium text-lg md:text-2xl leading-relaxed max-w-2xl mx-auto lg:mx-0"
                 >
-                  Turn your creativity into professional skills with GAC —
+                  Turn your creativity into professional skills with Glorious Art Creations —
                   Chidambaram's premier choice for master-level vocational
                   excellence.
                 </motion.p>
@@ -356,7 +356,7 @@ export default function Home() {
                 <h2 className="font-serif text-3xl sm:text-6xl font-bold text-white leading-tight">
                   Chidambaram's Trusted <br />
                   <span className="italic font-normal text-rose-300 underline decoration-rose-500/30 underline-offset-[12px]">
-                    GAC Affiliate
+                    Glorious Art Creations Affiliate
                   </span>
                 </h2>
                 <div className="mt-8 space-y-2">
@@ -373,8 +373,8 @@ export default function Home() {
                     UDYAM: UDYAM-TN-04-0009566
                   </p>
                 </div>
-                
-                <motion.div 
+
+                <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   className="mt-10 p-6 rounded-2xl bg-linear-to-r from-rose-500/10 to-transparent border-l-4 border-rose-500"

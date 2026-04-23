@@ -69,7 +69,7 @@ export default function About() {
               />
               <div className="space-y-6 mb-10">
                 <p className="text-slate-600 font-medium leading-relaxed italic">
-                  "Work until an signature becomes an Autograph."
+                  "Work until your signature becomes an Autograph."
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-6">
@@ -117,16 +117,13 @@ export default function About() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-10 -right-10 glass-effect p-10 rounded-[3rem] shadow-premium max-w-sm border border-white/40">
-                <p className="font-vibes text-2xl text-rose-600 mb-3">
-                  Correspondent and Principal
-                </p>
+              <div className="absolute -bottom-10 -right-10 glass-effect p-10 rounded-[3rem] shadow-premium max-w-sm border border-white/40 text-center">
                 <div className="space-y-2">
                   <h3 className="text-slate-900 font-black text-xl leading-none uppercase tracking-tight">
                     S.NAZUIEMUNNISHA
                   </h3>
                   <p className="text-rose-500 font-extrabold text-[10px] uppercase tracking-[0.3em]">
-                    Founder of GAC
+                    Founder of Glorious Art Creations
                   </p>
                 </div>
               </div>

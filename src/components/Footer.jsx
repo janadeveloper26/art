@@ -38,10 +38,7 @@ export default function Footer() {
               </div>
               <div>
                 <p className="font-serif text-xl font-bold text-slate-900 leading-none">
-                  Glorious Art
-                </p>
-                <p className="text-[10px] text-rose-500 font-extrabold uppercase tracking-widest mt-1">
-                  Creations
+                  Glorious Art Creations
                 </p>
               </div>
             </Link>

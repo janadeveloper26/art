@@ -34,7 +34,7 @@ const coursesData = [
     img: aariImg,
     title: "Aari Embroidery",
     subtitle: "Proficient enchanting with threads",
-    duration: "35 Days - 6 Mos",
+    duration: "35 Days - 6 Month",
     students: "150+",
     rating: 4.9,
     description: "Master the traditional art of Aari embroidery from basic to bridal mastery.",
@@ -46,7 +46,7 @@ const coursesData = [
     img: tailoringImg,
     title: "Tailoring",
     subtitle: "Legacy elegance in every thread",
-    duration: "35 Days - 6 Mos",
+    duration: "35 Days - 6 month",
     students: "120+",
     rating: 4.8,
     description: "Professional tailoring techniques for modern and traditional wear.",
@@ -106,7 +106,7 @@ const coursesData = [
     img: mehandiImg,
     title: "Mehandi Artistry",
     subtitle: "Mehandilicious",
-    duration: "35 Days - 3 Mos",
+    duration: "35 Days - 3 month",
     students: "110+",
     rating: 4.8,
     description: "Intricate henna designs from basic patterns to heavy bridal work.",
@@ -281,7 +281,7 @@ export default function Courses() {
                     <p className="text-[#5B7C99] text-sm font-medium italic mb-6 leading-relaxed">
                       "{c.subtitle}"
                     </p>
-                    
+
                     <div className="mt-auto">
                       <p className="text-[#9DB2BF] text-[11px] font-black uppercase tracking-[0.2em] mb-8">
                         {c.duration}

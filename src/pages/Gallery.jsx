@@ -14,12 +14,10 @@ import g1 from '../assets/WhatsApp Image 2026-04-21 at 10.37.14 AM.jpeg'
 import g2 from '../assets/WhatsApp Image 2026-04-21 at 10.36.43 AM (1).jpeg'
 import g3 from '../assets/WhatsApp Image 2026-04-21 at 10.36.43 AM.jpeg'
 import g4 from '../assets/WhatsApp Image 2026-04-21 at 10.36.44 AM.jpeg'
-import g5 from '../assets/WhatsApp Image 2026-04-21 at 10.36.45 AM.jpeg'
 import g6 from '../assets/WhatsApp Image 2026-04-21 at 10.36.46 AM.jpeg'
 import g7 from '../assets/WhatsApp Image 2026-04-21 at 10.36.47 AM.jpeg'
 import g8 from '../assets/WhatsApp Image 2026-04-21 at 10.36.49 AM.jpeg'
 import g9 from '../assets/WhatsApp Image 2026-04-21 at 10.37.14 AM (1).jpeg'
-import g10 from '../assets/WhatsApp Image 2026-04-21 at 10.37.15 AM.jpeg'
 import g11 from '../assets/WhatsApp Image 2026-04-21 at 10.37.20 AM (1).jpeg'
 import g12 from '../assets/WhatsApp Image 2026-04-21 at 10.37.20 AM.jpeg'
 import g13 from '../assets/WhatsApp Image 2026-04-21 at 10.37.20 AM (2).jpeg'
@@ -57,12 +55,10 @@ const items = [
   { img: g2, title: 'Silk Masterpiece', cat: 'Masterclass', alt: 'Intricate silk embroidery' },
   { img: g3, title: 'Bridal Detail', cat: 'Embroidery', alt: 'Detailed bridal work' },
   { img: g4, title: 'Designer Pattern', cat: 'Fashion', alt: 'Modern fashion pattern' },
-  { img: g5, title: 'Artistic Stitch', cat: 'Workshop', alt: 'Artistic embroidery stitch' },
   { img: g6, title: 'Golden Threads', cat: 'Luxury', alt: 'Golden thread work' },
   { img: g7, title: 'Creative Craft', cat: 'Student Work', alt: 'Creative student craft' },
   { img: g8, title: 'Modern Aari', cat: 'Embroidery', alt: 'Modern Aari work' },
   { img: g9, title: 'Fashion Sketch', cat: 'Design', alt: 'Fashion design sketch' },
-  { img: g10, title: 'Style Portfolio', cat: 'Professional', alt: 'Professional style portfolio' },
   { img: g11, title: 'Exquisite Work', cat: 'Advanced', alt: 'Exquisite craftsmanship' },
   { img: g12, title: 'Custom Boutique', cat: 'Boutique', alt: 'Custom boutique piece' },
   { img: g13, title: 'Artistic Vision', cat: 'Workshop', alt: 'Artistic vision project' },
@@ -115,29 +111,22 @@ export default function Gallery() {
 
       <section className="section-padding px-5 sm:px-8 bg-white">
         <div className="container-custom">
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+           <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 sm:gap-10 space-y-8 sm:space-y-10">
               {items.map((item, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group relative overflow-hidden rounded-[2.5rem] bg-slate-100 cursor-pointer shadow-sm hover:shadow-2xl transition-all h-[400px]"
+                  transition={{ delay: i * 0.05 }}
+                  className="break-inside-avoid group relative overflow-hidden rounded-[2.5rem] bg-slate-100 cursor-pointer shadow-sm hover:shadow-2xl transition-all"
                 >
-                   <img src={item.img} alt={item.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-                   <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                   
-                   <div className="absolute bottom-10 left-10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                      <span className="text-rose-400 text-[10px] font-extrabold uppercase tracking-widest">{item.cat}</span>
-                      <h3 className="text-white text-2xl font-serif font-bold mt-1">{item.title}</h3>
-                   </div>
-                   
-                   <div className="absolute top-10 right-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-rose-600 shadow-xl">
-                         <Plus size={24} />
-                      </div>
-                   </div>
+                   <img 
+                    src={item.img} 
+                    alt={item.alt} 
+                    className="w-full h-auto display-block transition-transform duration-700 group-hover:scale-105" 
+                    loading="lazy" 
+                  />
                 </motion.div>
               ))}
            </div>

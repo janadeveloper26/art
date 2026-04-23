@@ -214,7 +214,7 @@ export default function Contact() {
                     >
                       <option value="">Select a Course</option>
                       <option value="aari">Aari Embroidery</option>
-                      <option value="fashion-tailoring">Fashion Tailoring</option>
+                      <option value="fashion-tailoring"> Tailoring</option>
                       <option value="fashion-design">Fashion Designing</option>
                       <option value="beautician">Professional Beautician</option>
                       <option value="makeup">Makeup Artistry</option>

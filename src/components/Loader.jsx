@@ -33,7 +33,7 @@ export default function Loader() {
             transition={{ delay: 0.2 }}
             className="text-center"
           >
-            <h2 className="font-serif text-3xl font-bold text-slate-900 mb-2">Glorious Art</h2>
+            <h2 className="font-serif text-3xl font-bold text-slate-900 mb-2">Glorious Art Creations</h2>
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-rose-200" />
               <p className="text-[10px] text-rose-500 font-extrabold uppercase tracking-[.3em]">Perfecting Beauty</p>
