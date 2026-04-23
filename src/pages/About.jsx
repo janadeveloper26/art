@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
 import SEO from "../components/SEO";
 import aboutImg from "../assets/about.png";
+import masterImg from "../assets/WhatsApp Image 2026-04-20 at 7.08.33 PM.jpeg";
+
 
 const SectionTitle = ({ subtitle, title, description, center = false }) => (
   <div className={`mb-12 md:mb-16 ${center ? "text-center" : ""}`}>
@@ -109,23 +111,30 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative">
               <div className="aspect-[4/5] rounded-[4rem] bg-slate-100 overflow-hidden shadow-2xl">
-                <div className="w-full h-full flex items-center justify-center text-slate-300">
-                  <Users size={120} strokeWidth={1} />
-                </div>
+                <img 
+                  src={masterImg} 
+                  alt="Founder S.NAZUIEMUNNISHA - Glorious Art Creations" 
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="absolute -bottom-10 -right-10 glass-effect p-8 rounded-[3rem] shadow-premium max-w-xs">
-                <p className="font-vibes text-3xl text-rose-600 mb-2">
-                  Master Trainer
+              <div className="absolute -bottom-10 -right-10 glass-effect p-10 rounded-[3rem] shadow-premium max-w-sm border border-white/40">
+                <p className="font-vibes text-2xl text-rose-600 mb-3">
+                  Correspondent and Principal
                 </p>
-                <p className="text-slate-900 font-bold leading-tight">
-                  8 Years of Professional Boutique Experience
-                </p>
+                <div className="space-y-2">
+                  <h3 className="text-slate-900 font-black text-xl leading-none uppercase tracking-tight">
+                    S.NAZUIEMUNNISHA
+                  </h3>
+                  <p className="text-rose-500 font-extrabold text-[10px] uppercase tracking-[0.3em]">
+                    Founder of GAC
+                  </p>
+                </div>
               </div>
             </div>
             <div className="space-y-8">
               <SectionTitle
                 subtitle="The Expertise"
-                title="Guided by <span className='gradient-text'>Industry Experts</span>"
+                title="Guided by Industry Experts"
                 description="Our training programs are led by master artisans who have spent decades perfecting the craft of bridal embroidery and garment construction."
               />
               <ul className="space-y-4">
@@ -164,7 +173,7 @@ export default function About() {
         {
           icon: <ShieldCheck />,
           title: "Govt Certified",
-          desc: "Official recognition with ISO 9001:2015 for every professional course.",
+          desc: "Official recognition with ISO 9001:2015 and UDYAM-TN-04-0009566 registration.",
         },
         {
           icon: <Users />,

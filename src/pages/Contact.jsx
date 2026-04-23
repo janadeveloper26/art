@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useSearchParams } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
@@ -15,6 +16,33 @@ import SEO from "../components/SEO";
 export default function Contact() {
   const [searchParams] = useSearchParams();
   const selectedCourse = searchParams.get("course") || "";
+
+  const [formData, setFormData] = useState({
+    name: "",
+    mobile: "",
+    course: selectedCourse,
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, mobile, course, message } = formData;
+    
+    // Construct WhatsApp message
+    const waText = `*Enrollment Inquiry - Glorious Art Creations*%0A%0A` +
+      `*Full Name:* ${name}%0A` +
+      `*Mobile Number:* ${mobile}%0A` +
+      `*Interested Course:* ${course}%0A` +
+      `*Message:* ${message || "Interested in joining the academy."}`;
+
+    const whatsappUrl = `https://wa.me/918072769642?text=${waText}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
   return (
     <PageWrapper>
@@ -141,7 +169,7 @@ export default function Contact() {
                 <h3 className="font-serif text-2xl font-bold text-slate-900 mb-10">
                   Enrollment Inquiry
                 </h3>
-                <form className="space-y-6 relative z-10">
+                <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 ml-4">
@@ -149,6 +177,10 @@ export default function Contact() {
                       </label>
                       <input
                         type="text"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="Your Name"
                         className="w-full h-16 px-8 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-rose-400 focus:outline-hidden transition-all text-slate-900 font-medium"
                       />
@@ -159,6 +191,10 @@ export default function Contact() {
                       </label>
                       <input
                         type="tel"
+                        name="mobile"
+                        required
+                        value={formData.mobile}
+                        onChange={handleChange}
                         placeholder="+91 00000 00000"
                         className="w-full h-16 px-8 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-rose-400 focus:outline-hidden transition-all text-slate-900 font-medium"
                       />
@@ -170,14 +206,26 @@ export default function Contact() {
                       Interested Course
                     </label>
                     <select
-                      defaultValue={selectedCourse}
+                      name="course"
+                      required
+                      value={formData.course}
+                      onChange={handleChange}
                       className="w-full h-16 px-8 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-rose-400 focus:outline-hidden transition-all text-slate-900 font-medium appearance-none cursor-pointer"
                     >
                       <option value="">Select a Course</option>
                       <option value="aari">Aari Embroidery</option>
-                      <option value="tailoring">Tailoring & Fashion</option>
+                      <option value="fashion-tailoring">Fashion Tailoring</option>
+                      <option value="fashion-design">Fashion Designing</option>
+                      <option value="beautician">Professional Beautician</option>
                       <option value="makeup">Makeup Artistry</option>
-                      <option value="crafts">Creative Crafts</option>
+                      <option value="hairstyle">Hairstyle Mastery</option>
+                      <option value="mehandi">Mehandi Artistry</option>
+                      <option value="nail-art">Nail Art</option>
+                      <option value="tracing">Tracing & Sketching</option>
+                      <option value="brooches">Brooches & Crafts</option>
+                      <option value="saree-prepleating">Saree Pre-pleating</option>
+                      <option value="saree-draping">Saree Draping</option>
+                      <option value="henna-mixology">Henna Mixology</option>
                     </select>
                   </div>
 
@@ -186,6 +234,9 @@ export default function Contact() {
                       Your Message
                     </label>
                     <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder="Tell us about your learning goals..."
                       className="w-full min-h-[160px] p-8 rounded-[2rem] bg-slate-50 border border-slate-100 focus:bg-white focus:border-rose-400 focus:outline-hidden transition-all text-slate-900 font-medium resize-none"
                     ></textarea>
@@ -207,13 +258,17 @@ export default function Contact() {
       {/* Map Placeholder */}
       <section className="py-20 px-5 sm:px-8 bg-slate-50">
         <div className="container-custom">
-          <div className="h-[400px] w-full rounded-[3rem] bg-slate-200 relative overflow-hidden flex items-center justify-center">
-            <div className="text-center">
-              <MapPin size={48} className="text-slate-400 mx-auto mb-4" />
-              <p className="font-bold text-slate-400 uppercase tracking-widest text-xs">
-                Interactive Map Loading...
-              </p>
-            </div>
+          <div className="h-[500px] w-full rounded-[3rem] bg-slate-200 relative overflow-hidden shadow-2xl">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3911.155353535353!2d79.696127!3d11.396239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDIzJzQ2LjUiTiA3OcKwNDEnNDYuMSJF!5e0!3m2!1sen!2sin!4v1713876000000!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Glorious Art Creations Location"
+            ></iframe>
           </div>
         </div>
       </section>

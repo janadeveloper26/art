@@ -9,6 +9,31 @@ import aariImg from '../assets/aari.png'
 import tailoringImg from '../assets/tailoring.png'
 import makeupImg from '../assets/makeup.png'
 
+// New Gallery Images
+import g1 from '../assets/WhatsApp Image 2026-04-21 at 10.37.14 AM.jpeg'
+import g2 from '../assets/WhatsApp Image 2026-04-21 at 10.36.43 AM (1).jpeg'
+import g3 from '../assets/WhatsApp Image 2026-04-21 at 10.36.43 AM.jpeg'
+import g4 from '../assets/WhatsApp Image 2026-04-21 at 10.36.44 AM.jpeg'
+import g5 from '../assets/WhatsApp Image 2026-04-21 at 10.36.45 AM.jpeg'
+import g6 from '../assets/WhatsApp Image 2026-04-21 at 10.36.46 AM.jpeg'
+import g7 from '../assets/WhatsApp Image 2026-04-21 at 10.36.47 AM.jpeg'
+import g8 from '../assets/WhatsApp Image 2026-04-21 at 10.36.49 AM.jpeg'
+import g9 from '../assets/WhatsApp Image 2026-04-21 at 10.37.14 AM (1).jpeg'
+import g10 from '../assets/WhatsApp Image 2026-04-21 at 10.37.15 AM.jpeg'
+import g11 from '../assets/WhatsApp Image 2026-04-21 at 10.37.20 AM (1).jpeg'
+import g12 from '../assets/WhatsApp Image 2026-04-21 at 10.37.20 AM.jpeg'
+import g13 from '../assets/WhatsApp Image 2026-04-21 at 10.37.20 AM (2).jpeg'
+import g14 from '../assets/WhatsApp Image 2026-04-22 at 9.19.06 PM.jpeg'
+import g15 from '../assets/WhatsApp Image 2026-04-22 at 9.19.07 PM.jpeg'
+import g16 from '../assets/WhatsApp Image 2026-04-22 at 9.19.08 PM (1).jpeg'
+import g17 from '../assets/WhatsApp Image 2026-04-22 at 9.19.09 PM (1).jpeg'
+import g18 from '../assets/WhatsApp Image 2026-04-22 at 9.19.09 PM.jpeg'
+import g19 from '../assets/WhatsApp Image 2026-04-22 at 9.19.11 PM (1).jpeg'
+import g20 from '../assets/WhatsApp Image 2026-04-22 at 9.19.11 PM.jpeg'
+import g21 from '../assets/WhatsApp Image 2026-04-22 at 9.19.14 PM (1).jpeg'
+import g22 from '../assets/WhatsApp Image 2026-04-22 at 9.19.14 PM.jpeg'
+import g23 from '../assets/WhatsApp Image 2026-04-21 at 10.37.16 AM.jpeg'
+
 const InstagramIcon = ({ size = 24 }) => (
   <svg 
     width={size} 
@@ -28,11 +53,32 @@ const InstagramIcon = ({ size = 24 }) => (
 
 const items = [
   { img: aariImg, title: 'Bridal Embroidery', cat: 'Student Work', alt: 'Intricate Aari embroidery bridal work by student' },
+  { img: g1, title: 'Boutique Design', cat: 'Student Work', alt: 'Professional boutique design' },
+  { img: g2, title: 'Silk Masterpiece', cat: 'Masterclass', alt: 'Intricate silk embroidery' },
+  { img: g3, title: 'Bridal Detail', cat: 'Embroidery', alt: 'Detailed bridal work' },
+  { img: g4, title: 'Designer Pattern', cat: 'Fashion', alt: 'Modern fashion pattern' },
+  { img: g5, title: 'Artistic Stitch', cat: 'Workshop', alt: 'Artistic embroidery stitch' },
+  { img: g6, title: 'Golden Threads', cat: 'Luxury', alt: 'Golden thread work' },
+  { img: g7, title: 'Creative Craft', cat: 'Student Work', alt: 'Creative student craft' },
+  { img: g8, title: 'Modern Aari', cat: 'Embroidery', alt: 'Modern Aari work' },
+  { img: g9, title: 'Fashion Sketch', cat: 'Design', alt: 'Fashion design sketch' },
+  { img: g10, title: 'Style Portfolio', cat: 'Professional', alt: 'Professional style portfolio' },
+  { img: g11, title: 'Exquisite Work', cat: 'Advanced', alt: 'Exquisite craftsmanship' },
+  { img: g12, title: 'Custom Boutique', cat: 'Boutique', alt: 'Custom boutique piece' },
+  { img: g13, title: 'Artistic Vision', cat: 'Workshop', alt: 'Artistic vision project' },
+  { img: g14, title: 'Floral Patterns', cat: 'Embroidery', alt: 'Floral embroidery patterns' },
+  { img: g15, title: 'Traditional Art', cat: 'Heritage', alt: 'Traditional art form' },
+  { img: g16, title: 'Modern Silhouette', cat: 'Fashion', alt: 'Modern silhouette design' },
+  { img: g17, title: 'Precision Tailoring', cat: 'Tailoring', alt: 'Precision tailoring work' },
+  { img: g18, title: 'Chic Collection', cat: 'Student Work', alt: 'Chic student collection' },
+  { img: g19, title: 'Intricate Design', cat: 'Aesthetics', alt: 'Intricate aesthetic design' },
+  { img: g20, title: 'Golden Embroidery', cat: 'Luxury', alt: 'Golden embroidery detail' },
+  { img: g21, title: 'Designer Showcase', cat: 'Professional', alt: 'Designer showcase piece' },
+  { img: g22, title: 'Boutique Excellence', cat: 'Boutique', alt: 'Boutique excellence' },
+  { img: g23, title: 'Master Trainer Work', cat: 'Masterclass', alt: 'Work by master trainer' },
   { img: tailoringImg, title: 'Designer Blouse', cat: 'Masterclass', alt: 'Professional designer blouse tailoring in Chidambaram' },
   { img: makeupImg, title: 'Bridal Glam', cat: 'Professional', alt: 'Bridal makeup artistry by expert student' },
   { img: heroImg, title: 'Fashion Design', cat: 'Aesthetics', alt: 'Advanced fashion designing student project' },
-  { img: aariImg, title: 'Silk Work', cat: 'Embroidery', alt: 'Silk thread Aari embroidery detailing' },
-  { img: tailoringImg, title: 'Boutique Collection', cat: 'Student Work', alt: 'Boutique collection displayed at Glorious Art' },
 ]
 
 export default function Gallery() {
@@ -110,12 +156,12 @@ export default function Gallery() {
                 Follow our daily artistic journeys and student progress on Instagram. Get your daily dose of creative energy.
               </p>
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/gloriousartcreations_aari?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn-premium btn-gradient w-full sm:w-auto px-12 text-center"
               >
-                Follow @gloriousartcreations <InstagramIcon size={18} />
+                Follow @gloriousartcreations_aari <InstagramIcon size={18} />
               </a>
            </div>
         </div>

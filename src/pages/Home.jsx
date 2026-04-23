@@ -26,6 +26,7 @@ import aariImg from "../assets/aari.png";
 import tailoringImg from "../assets/tailoring.png";
 import makeupImg from "../assets/makeup.png";
 import aboutImg from "../assets/about.png";
+import fashionDesignImg from "../assets/fashion_design.png";
 
 const fadeIn = {
   initial: { opacity: 0, y: 30 },
@@ -124,6 +125,15 @@ export default function Home() {
       badge: "Hot Choice",
     },
     {
+      id: "fd",
+      title: "Fashion Designing",
+      category: "Advanced",
+      img: fashionDesignImg,
+      tagline: "Sewing with passion",
+      duration: "6 - 10 Months",
+      badge: "Career Focus",
+    },
+    {
       id: "makeup",
       title: "Makeup Artistry",
       category: "Beauty",
@@ -131,15 +141,6 @@ export default function Home() {
       tagline: "Unveil your natural glow",
       duration: "2 Months",
       badge: "Expert Choice",
-    },
-    {
-      id: "fd",
-      title: "Fashion Designing",
-      category: "Advanced",
-      emoji: "🎨",
-      tagline: "Sewing with passion",
-      duration: "6 - 10 Months",
-      badge: "Career Focus",
     },
   ];
 
@@ -172,7 +173,7 @@ export default function Home() {
     },
     {
       q: "Is the certification valid for jobs?",
-      a: "Yes, our certificate is recognized by leading boutiques and fashion houses. It is also an essential document if you plan to register your own shop.",
+      a: "Yes ,our certificate is affiliated by ICVE and AN ISO 9001-2015 CERTIFIED INSTITUTION",
     },
     {
       q: "Do you offer online classes for students outside Chidambaram?",
@@ -324,38 +325,8 @@ export default function Home() {
                       {c.emoji}
                     </div>
                   )}
-                  <div className="absolute top-6 left-6 z-20">
-                    {c.badge === "Career Focus" ? (
-                      <motion.div
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 1 }}
-                        transition={{ type: "spring", damping: 15 }}
-                        className="px-4 py-2 bg-linear-to-r from-purple-600 to-indigo-600 text-white rounded-full text-[9px] font-black uppercase tracking-[0.2em] shadow-lg shadow-purple-200 flex items-center gap-2 border border-white/20"
-                      >
-                        <ShieldCheck size={12} className="text-purple-200" />{" "}
-                        Career Focus
-                      </motion.div>
-                    ) : c.badge === "Hot Choice" ? (
-                      <motion.div
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 1 }}
-                        transition={{ type: "spring", damping: 15 }}
-                        className="px-4 py-2 bg-linear-to-r from-orange-500 to-rose-600 text-white rounded-full text-[9px] font-black uppercase tracking-[0.2em] shadow-lg shadow-orange-200 flex items-center gap-2 border border-white/20"
-                      >
-                        <Sparkles size={12} className="text-orange-200" /> Hot
-                        Choice
-                      </motion.div>
-                    ) : (
-                      <div className="px-4 py-2 bg-white/90 backdrop-blur-md rounded-2xl text-[9px] font-black uppercase tracking-[0.2em] text-slate-800 shadow-sm border border-slate-100/50">
-                        {c.badge}
-                      </div>
-                    )}
-                  </div>
                 </div>
                 <div className="p-8">
-                  <span className="text-rose-500 text-[10px] font-extrabold uppercase tracking-[.3em] mb-2 block">
-                    {c.category}
-                  </span>
                   <h3 className="font-serif text-2xl font-bold text-slate-900 mb-2">
                     {c.title}
                   </h3>
@@ -398,7 +369,21 @@ export default function Home() {
                   <p className="text-rose-300/60 font-bold text-[10px] uppercase tracking-widest">
                     GOVT Reg. Academy
                   </p>
+                  <p className="text-rose-300/60 font-bold text-[10px] uppercase tracking-widest">
+                    UDYAM: UDYAM-TN-04-0009566
+                  </p>
                 </div>
+                
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  className="mt-10 p-6 rounded-2xl bg-linear-to-r from-rose-500/10 to-transparent border-l-4 border-rose-500"
+                >
+                  <p className="text-white font-bold text-lg mb-1">Franchise Opportunities</p>
+                  <p className="text-rose-200/70 text-sm font-medium">
+                    We are now offering Franchise & Branch opening opportunities. Partner with Chidambaram's #1 Academy.
+                  </p>
+                </motion.div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-8">

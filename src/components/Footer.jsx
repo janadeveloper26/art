@@ -46,12 +46,12 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-slate-500 font-medium text-sm leading-relaxed max-w-xs">
-              Official accreditation affiliated to ICVE. Best in Everything -
-              Beauty & Fashion Designing Academy in Chidambaram.
+              Official accreditation affiliated to ICVE. UDYAM: UDYAM-TN-04-0009566. 
+              Best in Everything - Beauty & Fashion Designing Academy in Chidambaram.
             </p>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com/gloriousartcreations_aari"
+                href="https://www.instagram.com/gloriousartcreations_aari?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-rose-600 hover:border-rose-200 transition-all"
