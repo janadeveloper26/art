@@ -109,7 +109,7 @@ export default function About() {
       <section className="section-padding px-5 sm:px-8 bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="relative">
+            <div className="relative mb-16 lg:mb-0 mr-4 md:mr-0">
               <div className="aspect-[4/5] rounded-[4rem] bg-slate-100 overflow-hidden shadow-2xl">
                 <img 
                   src={masterImg} 
@@ -117,13 +117,16 @@ export default function About() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-10 -right-10 glass-effect p-10 rounded-[3rem] shadow-premium max-w-sm border border-white/40 text-center">
-                <div className="space-y-2">
-                  <h3 className="text-slate-900 font-black text-xl leading-none uppercase tracking-tight">
+              <div className="absolute -bottom-8 -right-4 md:-bottom-10 md:-right-10 z-20 bg-white/95 backdrop-blur-xl p-6 md:p-10 rounded-[3rem] shadow-[0_20px_50px_-12px_rgba(225,29,72,0.2)] max-w-[280px] md:max-w-xs border border-white/50 text-center transition-all duration-500 hover:-translate-y-2 group">
+                <div className="absolute inset-0 rounded-[3rem] bg-linear-to-tr from-rose-500/5 to-transparent pointer-events-none" />
+                <div className="relative z-10 space-y-3">
+                  <h3 className="font-serif text-xl md:text-2xl font-black text-slate-900 leading-tight tracking-tight">
                     S.NAZUIEMUNNISHA
                   </h3>
-                  <p className="text-rose-500 font-extrabold text-[10px] uppercase tracking-[0.3em]">
-                    Founder of Glorious Art Creations
+                  <div className="h-0.5 w-10 bg-linear-to-r from-rose-600 to-rose-400 mx-auto rounded-full" />
+                  <p className="text-rose-600 font-black text-[9px] md:text-[10px] uppercase tracking-[0.3em] leading-relaxed">
+                    Founder of <br/>
+                    <span className="text-slate-900 font-extrabold tracking-[0.1em]">Glorious Art Creations</span>
                   </p>
                 </div>
               </div>
