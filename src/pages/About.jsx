@@ -140,7 +140,7 @@ export default function About() {
               <ul className="space-y-4">
                 {[
                   "Certified Professional Trainer",
-                  "Expert in 50+ Aari stitches",
+                  "Expert in 150+ Aari stitches",
                   "Boutique Management Consultant",
                   "100% Success Rate with Students",
                 ].map((point) => (
@@ -166,8 +166,8 @@ export default function About() {
         },
         {
           icon: <Star />,
-          title: "World Record",
-          desc: "No 1 world won ACADEMY on DEC 6. 2025 for 4 Categories.",
+          title: "Noble world record",
+          desc: "Event organized byGAC held on Dec 6 2025.For four categories Aari embriodery, Tailoring, Make-up, Mehandhi",
           highlight: true,
         },
         {

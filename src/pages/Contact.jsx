@@ -103,7 +103,7 @@ export default function Contact() {
                   {
                     icon: <MapPin />,
                     title: "Bhuvanagiri Branch",
-                    text: "Main Road, Bhuvanagiri, Tamil Nadu",
+                    text: "Bus stand, opp to two wheeler stand, Bhuvanagiri.",
                   },
                   {
                     icon: <Phone />,

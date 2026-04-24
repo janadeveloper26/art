@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.jpeg";
 
 const InstagramIcon = ({ size = 20 }) => (
   <svg
@@ -25,24 +25,24 @@ export default function Footer() {
   return (
     <footer className="bg-slate-50 border-t border-slate-100 px-5 sm:px-8 pt-24 pb-12 overflow-hidden">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-24 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 lg:gap-12 mb-20">
           {/* Brand */}
-          <div className="space-y-8 col-span-1 md:col-span-2 lg:col-span-1">
+          <div className="space-y-8 col-span-1 md:col-span-2 lg:col-span-2">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center p-1 shadow-sm">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-2xl flex items-center justify-center p-1 shadow-sm shrink-0">
                 <img
-                  src="/logo.png"
+                  src={logo}
                   alt="Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
               <div>
-                <p className="font-serif text-xl font-bold text-slate-900 leading-none">
+                <p className="font-serif text-xl md:text-2xl font-black text-slate-900 leading-none whitespace-nowrap">
                   Glorious Art Creations
                 </p>
               </div>
             </Link>
-            <p className="text-slate-500 font-medium text-sm leading-relaxed max-w-xs">
+            <p className="text-slate-700 font-bold text-sm leading-relaxed max-w-xs">
               Official accreditation affiliated to ICVE. UDYAM: UDYAM-TN-04-0009566. 
               Best in Everything - Beauty & Fashion Designing Academy in Chidambaram.
             </p>
@@ -60,7 +60,7 @@ export default function Footer() {
 
           {/* Links 1 */}
           <div>
-            <h4 className="text-[10px] font-extrabold uppercase tracking-[0.3em] text-slate-400 mb-8">
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-8">
               Navigation
             </h4>
             <ul className="space-y-4">
@@ -69,7 +69,7 @@ export default function Footer() {
                   <li key={link}>
                     <Link
                       to={link === "Home" ? "/" : `/${link.toLowerCase()}`}
-                      className="text-slate-600 font-bold text-sm hover:text-rose-600 flex items-center gap-2 group transition-colors"
+                      className="text-slate-900 font-extrabold text-sm hover:text-rose-600 flex items-center gap-2 group transition-colors"
                     >
                       {link}{" "}
                       <ArrowUpRight
@@ -85,7 +85,7 @@ export default function Footer() {
 
           {/* Links 2 */}
           <div>
-            <h4 className="text-[10px] font-extrabold uppercase tracking-[0.3em] text-slate-400 mb-8">
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-8">
               Courses
             </h4>
             <ul className="space-y-4">
@@ -98,7 +98,7 @@ export default function Footer() {
                 <li key={link}>
                   <Link
                     to="/courses"
-                    className="text-slate-600 font-bold text-sm hover:text-rose-600 transition-colors"
+                    className="text-slate-900 font-extrabold text-sm hover:text-rose-600 transition-colors"
                   >
                     {link}
                   </Link>
@@ -109,16 +109,16 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="space-y-6">
-            <h4 className="text-[10px] font-extrabold uppercase tracking-[0.3em] text-slate-400 mb-8">
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-8">
               Visit Us
             </h4>
             <div className="flex gap-4 items-start">
               <MapPin size={20} className="text-rose-500 shrink-0" />
               <div>
-                <p className="text-slate-900 font-bold text-sm">
+                <p className="text-slate-900 font-black text-sm">
                   Chidambaram Branch
                 </p>
-                <p className="text-slate-600 font-medium text-xs leading-relaxed">
+                <p className="text-slate-900 font-bold text-xs leading-relaxed">
                   8A/2, Umayal Street, Near National Shopping, Chidambaram
                 </p>
               </div>
@@ -126,17 +126,17 @@ export default function Footer() {
             <div className="flex gap-4 items-start">
               <MapPin size={20} className="text-purple-500 shrink-0" />
               <div>
-                <p className="text-slate-900 font-bold text-sm">
+                <p className="text-slate-900 font-black text-sm">
                   Bhuvanagiri Branch
                 </p>
-                <p className="text-slate-600 font-medium text-xs">
-                  Main Road, Bhuvanagiri
+                <p className="text-slate-900 font-bold text-xs">
+                  Bus stand, opp to two wheeler stand, Bhuvanagiri.
                 </p>
               </div>
             </div>
             <div className="flex gap-4 items-start">
               <Phone size={20} className="text-rose-500 shrink-0" />
-              <p className="text-slate-600 font-medium text-sm">
+              <p className="text-slate-900 font-bold text-sm">
                 +91 80727 69642
                 <br />
                 +91 73395 33550
@@ -144,7 +144,7 @@ export default function Footer() {
             </div>
             <div className="flex gap-4 items-start">
               <Mail size={20} className="text-rose-500 shrink-0" />
-              <p className="text-slate-600 font-medium text-sm break-all">
+              <p className="text-slate-900 font-bold text-sm break-all">
                 gacgloriousartcreationsstrust07@gmail.com
               </p>
             </div>

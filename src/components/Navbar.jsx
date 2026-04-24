@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X, ArrowRight, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.jpeg";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -88,9 +88,9 @@ export default function Navbar() {
                 to="/"
                 className="flex items-center gap-2 md:gap-3 shrink-0 group"
               >
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white flex items-center justify-center p-1 shadow-sm group-hover:rotate-3 transition-transform duration-300">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white flex items-center justify-center p-1 shadow-sm group-hover:rotate-3 transition-transform duration-300 shrink-0">
                   <img
-                    src="/logo.png"
+                    src={logo}
                     alt="Glorious Art Creations"
                     className="w-full h-full object-contain"
                   />
@@ -188,7 +188,7 @@ export default function Navbar() {
                   <Link to="/" className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center p-1 shadow-sm">
                       <img
-                        src="/logo.png"
+                        src={logo}
                         alt="Glorious Art Creations"
                         className="w-full h-full object-contain"
                       />

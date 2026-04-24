@@ -120,7 +120,7 @@ export default function Home() {
       title: "Tailoring",
       category: "Creative",
       img: tailoringImg,
-      tagline: "Legacy elegance in every thread",
+      tagline: "Elegance in every thread",
       duration: "35 Days - 6 months",
       badge: "Hot Choice",
     },
@@ -381,7 +381,7 @@ export default function Home() {
                 >
                   <p className="text-white font-bold text-lg mb-1">Franchise Opportunities</p>
                   <p className="text-rose-200/70 text-sm font-medium">
-                    We are now offering Franchise & Branch opening opportunities. Partner with Chidambaram's #1 Academy.
+                    Start your own successful training center with our trusted brand. Join hands with us and build your own business with low investment!
                   </p>
                 </motion.div>
               </div>
