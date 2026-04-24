@@ -69,7 +69,7 @@ export default function About() {
               />
               <div className="space-y-6 mb-10">
                 <p className="text-slate-600 font-medium leading-relaxed italic">
-                  "Work until your signature becomes an Autograph."
+                  "Work until ur signature becomes an Autograph."
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-6">

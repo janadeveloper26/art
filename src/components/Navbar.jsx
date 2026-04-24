@@ -82,21 +82,21 @@ export default function Navbar() {
               scrolled ? "py-1.5" : "py-2 md:py-3"
             }`}
           >
-            <div className="flex items-center justify-between h-12 md:h-16">
+            <div className="flex items-center justify-between h-14 md:h-16">
               {/* Logo */}
               <Link
                 to="/"
                 className="flex items-center gap-2 md:gap-3 shrink-0 group"
               >
-                <div className="w-9 h-9 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white flex items-center justify-center p-1 shadow-sm group-hover:rotate-3 transition-transform duration-300">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white flex items-center justify-center p-1 shadow-sm group-hover:rotate-3 transition-transform duration-300">
                   <img
                     src="/logo.png"
                     alt="Glorious Art Creations"
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <div className="hidden xs:block sm:block">
-                  <p className="font-serif text-sm md:text-xl font-extrabold leading-none text-slate-900 group-hover:text-rose-600 transition-colors">
+                <div className="block">
+                  <p className="font-serif text-lg sm:text-xl md:text-2xl font-extrabold leading-tight text-slate-900 group-hover:text-rose-600 transition-colors">
                     Glorious Art Creations
                   </p>
                 </div>

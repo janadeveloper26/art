@@ -112,7 +112,7 @@ export default function Home() {
       category: "Professional",
       img: aariImg,
       tagline: "Proficient enchanting with threads",
-      duration: "35 Days - 6 month",
+      duration: "35 Days - 6 months",
       badge: "Professional",
     },
     {
@@ -121,7 +121,7 @@ export default function Home() {
       category: "Creative",
       img: tailoringImg,
       tagline: "Legacy elegance in every thread",
-      duration: "35 Days - 6 month",
+      duration: "35 Days - 6 months",
       badge: "Hot Choice",
     },
     {
@@ -130,7 +130,7 @@ export default function Home() {
       category: "Advanced",
       img: fashionDesignImg,
       tagline: "Sewing with passion",
-      duration: "6 - 10 Months",
+      duration: "6 - 10 months",
       badge: "Career Focus",
     },
     {
@@ -139,7 +139,7 @@ export default function Home() {
       category: "Beauty",
       img: makeupImg,
       tagline: "Unveil your natural glow",
-      duration: "2 Months",
+      duration: "2 months",
       badge: "Expert Choice",
     },
   ];

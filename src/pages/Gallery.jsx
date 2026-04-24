@@ -31,6 +31,10 @@ import g20 from '../assets/WhatsApp Image 2026-04-22 at 9.19.11 PM.jpeg'
 import g21 from '../assets/WhatsApp Image 2026-04-22 at 9.19.14 PM (1).jpeg'
 import g22 from '../assets/WhatsApp Image 2026-04-22 at 9.19.14 PM.jpeg'
 import g23 from '../assets/WhatsApp Image 2026-04-21 at 10.37.16 AM.jpeg'
+import g24 from '../assets/WhatsApp Image 2026-04-24 at 1.33.41 PM.jpeg'
+import g25 from '../assets/WhatsApp Image 2026-04-24 at 8.32.23 AM.jpeg'
+import g26 from '../assets/WhatsApp Image 2026-04-24 at 8.32.24 AM.jpeg'
+import g27 from '../assets/WhatsApp Image 2026-04-24 at 8.33.13 AM.jpeg'
 
 const InstagramIcon = ({ size = 24 }) => (
   <svg 
@@ -72,6 +76,10 @@ const items = [
   { img: g21, title: 'Designer Showcase', cat: 'Professional', alt: 'Designer showcase piece' },
   { img: g22, title: 'Boutique Excellence', cat: 'Boutique', alt: 'Boutique excellence' },
   { img: g23, title: 'Master Trainer Work', cat: 'Masterclass', alt: 'Work by master trainer' },
+  { img: g24, title: 'Student Excellence', cat: 'Achievement', alt: 'Award winning student work' },
+  { img: g25, title: 'Creative Workshop', cat: 'Handmade', alt: 'Artistic handmade workshop piece' },
+  { img: g26, title: 'Masterpiece Collection', cat: 'Advanced', alt: 'Advanced student masterpiece' },
+  { img: g27, title: 'Artistic Flair', cat: 'Design', alt: 'Modern artistic design showcase' },
   { img: tailoringImg, title: 'Designer Blouse', cat: 'Masterclass', alt: 'Professional designer blouse tailoring in Chidambaram' },
   { img: makeupImg, title: 'Bridal Glam', cat: 'Professional', alt: 'Bridal makeup artistry by expert student' },
   { img: heroImg, title: 'Fashion Design', cat: 'Aesthetics', alt: 'Advanced fashion designing student project' },
