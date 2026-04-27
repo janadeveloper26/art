@@ -138,7 +138,7 @@ export default function Home() {
       title: "Makeup Artistry",
       category: "Beauty",
       img: makeupImg,
-      tagline: "Unveil your natural glow",
+      tagline: "Wake up & make up",
       duration: "2 months",
       badge: "Expert Choice",
     },
