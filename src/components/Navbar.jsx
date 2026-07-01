@@ -2,15 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X, ArrowRight, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../assets/logo.png";
 
 const navLinks = [
-  { to: "/", label: "Home" },
-  { to: "/courses", label: "Courses" },
-  { to: "/about", label: "About" },
-  { to: "/gallery", label: "Gallery" },
-  { to: "/contact", label: "Contact" },
-];
   { to: "/", label: "Home" },
   { to: "/courses", label: "Courses" },
   { to: "/about", label: "About" },
@@ -22,15 +15,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -40,23 +26,14 @@ export default function Navbar() {
   useEffect(() => {
     setOpen(false);
   }, [location]);
-  useEffect(() => {
-    setOpen(false);
-  }, [location]);
 
   // Prevent scroll when mobile menu is open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
-      document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
-      document.body.style.overflow = "unset";
     }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [open]);
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -65,18 +42,9 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
         {/* ── Urgency Ribbon (Black - Top) ── */}
         <div className="hidden sm:block bg-slate-900 text-white py-1.5 overflow-hidden whitespace-nowrap border-b border-white/5">
-        <div className="hidden sm:block bg-slate-900 text-white py-1.5 overflow-hidden whitespace-nowrap border-b border-white/5">
           <div className="flex animate-marquee-reverse gap-12 items-center">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <span
-                key={i}
-                className="text-[10px] font-extrabold uppercase tracking-[.2em] flex items-center gap-2"
-              >
-                <Sparkles size={12} className="text-rose-500" /> Next Batch
-                Starts: June 1st, 2026 — Limited Seats Available! — Enroll Now
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <span
                 key={i}
@@ -91,15 +59,7 @@ export default function Navbar() {
 
         {/* ── Summer Special Urgency Banner (Rose-Violet) ────── */}
         <div className="bg-linear-to-r from-rose-600 to-purple-700 text-white py-1 md:py-1.5 overflow-hidden whitespace-nowrap border-b border-white/10">
-        <div className="bg-linear-to-r from-rose-600 to-purple-700 text-white py-1 md:py-1.5 overflow-hidden whitespace-nowrap border-b border-white/10">
           <div className="flex animate-marquee gap-8 items-center">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <span
-                key={i}
-                className="text-[9px] md:text-xs font-bold uppercase tracking-widest flex items-center gap-2"
-              >
-                🌞 Summer Special: Join any Professional Course and get 30 Days
-                FREE! <Sparkles size={12} className="text-yellow-300" />
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <span
                 key={i}
@@ -168,25 +128,6 @@ export default function Navbar() {
                   </NavLink>
                 ))}
               </div>
-              {/* Desktop Nav Links */}
-              <div className="hidden md:flex items-center gap-1 bg-slate-100/50 p-1.5 rounded-[1.5rem] border border-slate-200/50">
-                {navLinks.map((link) => (
-                  <NavLink
-                    key={link.to}
-                    to={link.to}
-                    end={link.to === "/"}
-                    className={({ isActive }) =>
-                      `px-5 py-2.5 text-xs font-bold font-sans uppercase tracking-[0.05em] rounded-[1.25rem] transition-all duration-300 ${
-                        isActive
-                          ? "bg-white text-rose-600 shadow-sm"
-                          : "text-slate-500 hover:text-rose-600"
-                      }`
-                    }
-                  >
-                    {link.label}
-                  </NavLink>
-                ))}
-              </div>
 
               {/* Desktop CTA */}
               <div className="hidden md:block">
@@ -197,48 +138,7 @@ export default function Navbar() {
                   Enroll Now <ArrowRight size={16} />
                 </Link>
               </div>
-              {/* Desktop CTA */}
-              <div className="hidden md:block">
-                <Link
-                  to="/contact"
-                  className="btn-premium btn-gradient py-3.5 px-8 text-xs uppercase tracking-widest"
-                >
-                  Enroll Now <ArrowRight size={16} />
-                </Link>
-              </div>
 
-              {/* Mobile Toggle Button */}
-              <button
-                onClick={() => setOpen(!open)}
-                className="md:hidden w-11 h-11 flex items-center justify-center rounded-2xl bg-white border border-slate-200 text-slate-900 hover:text-rose-600 transition-all shadow-sm active:scale-90"
-                aria-label="Toggle menu"
-              >
-                <AnimatePresence mode="wait">
-                  {open ? (
-                    <motion.div
-                      key="x"
-                      initial={{ rotate: -90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 90, opacity: 0 }}
-                    >
-                      <X size={22} />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="menu"
-                      initial={{ rotate: 90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: -90, opacity: 0 }}
-                    >
-                      <Menu size={22} />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
               {/* Mobile Toggle Button */}
               <button
                 onClick={() => setOpen(!open)}
@@ -285,10 +185,7 @@ export default function Navbar() {
             />
             <motion.div
               initial={{ x: "100%" }}
-              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 200 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 200 }}
               className="fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-sm bg-white border-l border-slate-100 p-8 shadow-2xl md:hidden overflow-y-auto"
@@ -311,18 +208,11 @@ export default function Navbar() {
                     onClick={() => setOpen(false)}
                     className="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400"
                   >
-                  <button
-                    onClick={() => setOpen(false)}
-                    className="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400"
-                  >
                     <X size={20} />
                   </button>
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <p className="text-[10px] font-extrabold uppercase tracking-[0.3em] text-rose-600 mb-2 px-4">
-                    Navigation
-                  </p>
                   <p className="text-[10px] font-extrabold uppercase tracking-[0.3em] text-rose-600 mb-2 px-4">
                     Navigation
                   </p>
@@ -336,12 +226,7 @@ export default function Navbar() {
                       <NavLink
                         to={link.to}
                         end={link.to === "/"}
-                        end={link.to === "/"}
                         className={({ isActive }) =>
-                          `flex items-center justify-between px-6 py-4 rounded-2xl text-lg font-bold transition-all ${
-                            isActive
-                              ? "bg-rose-600 text-white shadow-lg shadow-rose-200"
-                              : "text-slate-600 hover:bg-rose-50 hover:text-rose-600"
                           `flex items-center justify-between px-6 py-4 rounded-2xl text-lg font-bold transition-all ${
                             isActive
                               ? "bg-rose-600 text-white shadow-lg shadow-rose-200"
@@ -367,9 +252,6 @@ export default function Navbar() {
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
                       © Chidambaram | Bhuvanagiri
                     </p>
-                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                      © Chidambaram | Bhuvanagiri
-                    </p>
                   </div>
                 </div>
               </div>
@@ -378,6 +260,5 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </>
-  );
   );
 }

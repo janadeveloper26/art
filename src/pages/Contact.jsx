@@ -21,18 +21,13 @@ export default function Contact() {
       <SEO
         title="Contact Admissions | Enroll at Glorious Art Creations"
         description="Ready to start your creative career? Contact Glorious Art Creations in Chidambaram for admission details, course fees, and schedule information."
-      <SEO
-        title="Contact Admissions | Enroll at Glorious Art Creations"
-        description="Ready to start your creative career? Contact Glorious Art Creations in Chidambaram for admission details, course fees, and schedule information."
         url="/contact"
       />
-
 
       {/* ── Title Banner ─────────────────────────────────── */}
       <section className="pt-48 pb-16 lg:pt-64 lg:pb-32 px-5 sm:px-8 bg-slate-50 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-rose-100/40 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
         <div className="container-custom relative z-10 text-center lg:text-left">
-          <motion.span
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -40,7 +35,6 @@ export default function Contact() {
           >
             Get In Touch
           </motion.span>
-          <motion.h1
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -51,8 +45,6 @@ export default function Contact() {
           <p className="text-slate-500 font-medium text-lg leading-relaxed max-w-xl">
             We're here to help you choose the perfect creative path. Reach out
             to us for admission details, fees, or course schedules.
-            We're here to help you choose the perfect creative path. Reach out
-            to us for admission details, fees, or course schedules.
           </p>
         </div>
       </section>
@@ -60,18 +52,6 @@ export default function Contact() {
       {/* ── Main Content ──────────────────────────────────── */}
       <section className="section-padding px-5 sm:px-8 bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
-            {/* Info Column */}
-            <div className="lg:col-span-5 space-y-12">
-              <div className="space-y-4">
-                <h2 className="font-serif text-3xl font-bold text-slate-900">
-                  Information
-                </h2>
-                <p className="text-slate-500 font-medium">
-                  Located conveniently at the heart of the temple city,
-                  Chidambaram.
-                </p>
-              </div>
           <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
             {/* Info Column */}
             <div className="lg:col-span-5 space-y-12">
@@ -131,27 +111,6 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* WhatsApp CTA */}
-              <div className="p-8 rounded-[2.5rem] bg-linear-to-br from-green-50 to-teal-50 border border-green-100 flex flex-col sm:flex-row gap-6 items-center">
-                <div className="w-16 h-16 rounded-3xl bg-green-500 text-white flex items-center justify-center shrink-0 shadow-xl shadow-green-200">
-                  <MessageCircle size={32} />
-                </div>
-                <div className="text-center sm:text-left">
-                  <p className="font-bold text-slate-900">Instant Chat</p>
-                  <p className="text-xs text-slate-500 mb-4">
-                    Start a conversation on WhatsApp for quick replies.
-                  </p>
-                  <a
-                    href="https://wa.me/918072769642"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green-600 font-extrabold uppercase tracking-widest text-[10px] items-center gap-2 inline-flex hover:translate-x-1 transition-transform"
-                  >
-                    Chat Now <ArrowRight size={14} />
-                  </a>
-                </div>
-              </div>
-            </div>
               {/* WhatsApp CTA */}
               <div className="p-8 rounded-[2.5rem] bg-linear-to-br from-green-50 to-teal-50 border border-green-100 flex flex-col sm:flex-row gap-6 items-center">
                 <div className="w-16 h-16 rounded-3xl bg-green-500 text-white flex items-center justify-center shrink-0 shadow-xl shadow-green-200">
@@ -242,16 +201,6 @@ export default function Contact() {
               </div>
             </div>
           </div>
-                  <button
-                    type="submit"
-                    className="btn-premium btn-gradient w-full py-5 text-base"
-                  >
-                    Send Request <Send size={20} />
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -269,6 +218,5 @@ export default function Contact() {
         </div>
       </section>
     </PageWrapper>
-  );
   );
 }

@@ -15,7 +15,6 @@ import aboutImg from "../assets/about.png";
 
 const SectionTitle = ({ subtitle, title, description, center = false }) => (
   <div className={`mb-12 md:mb-16 ${center ? "text-center" : ""}`}>
-  <div className={`mb-12 md:mb-16 ${center ? "text-center" : ""}`}>
     <span className="text-rose-600 font-extrabold uppercase tracking-[0.3em] text-[10px] sm:text-xs mb-4 block">
       {subtitle}
     </span>
@@ -26,14 +25,10 @@ const SectionTitle = ({ subtitle, title, description, center = false }) => (
       <p
         className={`text-slate-500 font-medium text-base sm:text-lg leading-relaxed max-w-2xl ${center ? "mx-auto" : ""}`}
       >
-      <p
-        className={`text-slate-500 font-medium text-base sm:text-lg leading-relaxed max-w-2xl ${center ? "mx-auto" : ""}`}
-      >
         {description}
       </p>
     )}
   </div>
-);
 );
 
 export default function About() {
@@ -44,15 +39,7 @@ export default function About() {
     description:
       "Premium fashion and beauty training in Chidambaram specializing in Aari embroidery and tailored fashion.",
     address: {
-    name: "Glorious Art Creations",
-    description:
-      "Premium fashion and beauty training in Chidambaram specializing in Aari embroidery and tailored fashion.",
-    address: {
       "@type": "PostalAddress",
-      addressLocality: "Chidambaram",
-      addressRegion: "Tamil Nadu",
-    },
-  };
       addressLocality: "Chidambaram",
       addressRegion: "Tamil Nadu",
     },
@@ -60,9 +47,6 @@ export default function About() {
 
   return (
     <PageWrapper>
-      <SEO
-        title="Meet the Masters | Glorious Art Creations Success Story"
-        description="Learn the history and mission of Glorious Art Creations. Discover how we empower women through expert fashion and beauty training."
       <SEO
         title="Meet the Masters | Glorious Art Creations Success Story"
         description="Learn the history and mission of Glorious Art Creations. Discover how we empower women through expert fashion and beauty training."
@@ -260,37 +244,8 @@ export default function About() {
               </Link>
             </div>
           </div>
-          <div className="bg-slate-900 rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl group">
-            <div className="absolute inset-0 bg-linear-to-tr from-rose-900/40 to-purple-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="relative z-10">
-              <div className="mb-6">
-                <span className="text-rose-400 font-extrabold uppercase tracking-widest text-xs">
-                  Summer Special Live
-                </span>
-              </div>
-              <h2 className="font-serif text-3xl sm:text-6xl font-bold text-white mb-8 leading-tight">
-                Be Our Next{" "}
-                <span className="gradient-text italic font-normal">
-                  Success Story
-                </span>
-              </h2>
-              <p className="text-slate-400 mb-10 max-w-2xl mx-auto font-medium">
-                Join Chidambaram's #1 academy today and get an exclusive{" "}
-                <span className="text-white font-bold underline decoration-rose-500 underline-offset-8">
-                  30 Days FREE Advanced Mastery training.
-                </span>
-              </p>
-              <Link
-                to="/contact"
-                className="btn-premium btn-gradient w-full sm:w-auto px-16 text-center"
-              >
-                Enroll with Free Offer <ArrowRight size={22} />
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
     </PageWrapper>
-  );
   );
 }

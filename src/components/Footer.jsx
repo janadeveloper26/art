@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
-import logo from "../assets/logo.png";
 
 const InstagramIcon = ({ size = 20 }) => (
   <svg
@@ -18,10 +17,8 @@ const InstagramIcon = ({ size = 20 }) => (
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
   </svg>
 );
-);
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -98,12 +95,6 @@ export default function Footer() {
                 "Makeup Artistry",
                 "Handmade Crafts",
               ].map((link) => (
-              {[
-                "Aari Embroidery",
-                "Tailoring Design",
-                "Makeup Artistry",
-                "Handmade Crafts",
-              ].map((link) => (
                 <li key={link}>
                   <Link
                     to="/courses"
@@ -161,25 +152,19 @@ export default function Footer() {
         </div>
 
         <div className="pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="space-y-2 text-center md:text-left">
+          <div className="space-y-4 text-center md:text-left">
             <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">
               © {currentYear} Glorious Art Creations
             </p>
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start text-[10px] font-bold uppercase tracking-widest">
+              <Link to="/privacy-policy" className="text-slate-500 hover:text-rose-600 transition-colors">Privacy Policy</Link>
+              <span className="text-slate-300">|</span>
+              <Link to="/refund-policy" className="text-slate-500 hover:text-rose-600 transition-colors">Refund Policy</Link>
+              <span className="text-slate-300">|</span>
+              <Link to="/terms-of-service" className="text-slate-500 hover:text-rose-600 transition-colors">Terms of Service</Link>
+            </div>
             <p className="text-rose-500/60 text-[9px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-md">
-              Privacy Policy: Syllabus only service oriented not for classes
-              without franchise our NAME. SERVICE also available.
-            </p>
-          </div>
-          <p className="text-slate-400 text-xs font-bold uppercase tracking-widest">
-            Made with ❤️ for Chidambaram
-          </p>
-        <div className="pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="space-y-2 text-center md:text-left">
-            <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">
-              © {currentYear} Glorious Art Creations
-            </p>
-            <p className="text-rose-500/60 text-[9px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-md">
-              Privacy Policy: Syllabus only service oriented not for classes
+              Syllabus only service oriented not for classes
               without franchise our NAME. SERVICE also available.
             </p>
           </div>
@@ -189,6 +174,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
   );
 }
