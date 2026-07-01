@@ -19,6 +19,27 @@ import {
 } from "lucide-react";
 import PageWrapper from "../components/PageWrapper";
 import SEO from "../components/SEO";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import {
+  Sparkles,
+  Award,
+  Users,
+  BookOpen,
+  Clock,
+  ChevronRight,
+  ArrowRight,
+  CheckCircle2,
+  Star,
+  Plus,
+  Play,
+  Quote,
+  Phone,
+  ShieldCheck,
+} from "lucide-react";
+import PageWrapper from "../components/PageWrapper";
+import SEO from "../components/SEO";
 
 // Assets
 import heroImg from "../assets/hero.png";
@@ -33,8 +54,13 @@ const fadeIn = {
   viewport: { once: true },
   transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
 };
+  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+};
 
 const SectionTitle = ({ subtitle, title, description, center = false }) => (
+  <div
+    className={`mb-12 md:mb-20 ${center ? "text-center" : ""} max-w-4xl ${center ? "mx-auto" : ""}`}
+  >
   <div
     className={`mb-12 md:mb-20 ${center ? "text-center" : ""} max-w-4xl ${center ? "mx-auto" : ""}`}
   >
@@ -44,12 +70,14 @@ const SectionTitle = ({ subtitle, title, description, center = false }) => (
       </span>
     </motion.div>
     <motion.h2
+    <motion.h2
       {...fadeIn}
       transition={{ ...fadeIn.transition, delay: 0.1 }}
       className="heading-special text-slate-900 font-bold mb-8"
       dangerouslySetInnerHTML={{ __html: title }}
     />
     {description && (
+      <motion.p
       <motion.p
         {...fadeIn}
         transition={{ ...fadeIn.transition, delay: 0.2 }}
@@ -60,8 +88,10 @@ const SectionTitle = ({ subtitle, title, description, center = false }) => (
     )}
   </div>
 );
+);
 
 export default function Home() {
+  const [activeFaq, setActiveFaq] = useState(null);
   const [activeFaq, setActiveFaq] = useState(null);
 
   const homeSchema = {
@@ -74,7 +104,17 @@ export default function Home() {
       name: "Glorious Art Creations",
       sameAs: "https://gloriousartcreations.com",
     },
+    name: "Glorious Art Creations",
+    image: "https://gloriousartcreations.com/hero.png",
+    provider: {
+      "@type": "Organization",
+      name: "Glorious Art Creations",
+      sameAs: "https://gloriousartcreations.com",
+    },
     "@id": "",
+    url: "https://gloriousartcreations.com",
+    telephone: "+918072769642",
+    address: {
     url: "https://gloriousartcreations.com",
     telephone: "+918072769642",
     address: {
@@ -83,12 +123,20 @@ export default function Home() {
       addressLocality: "Chidambaram",
       postalCode: "608001",
       addressCountry: "IN",
+      streetAddress: "West Car Street",
+      addressLocality: "Chidambaram",
+      postalCode: "608001",
+      addressCountry: "IN",
     },
+    geo: {
     geo: {
       "@type": "GeoCoordinates",
       latitude: 11.399,
       longitude: 79.693,
+      latitude: 11.399,
+      longitude: 79.693,
     },
+    openingHoursSpecification: {
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [
@@ -98,7 +146,18 @@ export default function Home() {
         "Thursday",
         "Friday",
         "Saturday",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
       ],
+      opens: "09:00",
+      closes: "18:00",
+    },
+  };
       opens: "09:00",
       closes: "18:00",
     },
@@ -160,6 +219,22 @@ export default function Home() {
       text: "Professional grooming and makeup techniques taught here are industry standard. I feel so confident now.",
     },
   ];
+    {
+      name: "Priya R.",
+      role: "Boutique Owner",
+      text: "Completed Aari classes and started my own boutique in Chidambaram. The individual attention here is unmatched.",
+    },
+    {
+      name: "Anitha S.",
+      role: "Fashion Student",
+      text: "The tailoring course focused on bridal blouses helped me earn while studying. Highly recommend for women!",
+    },
+    {
+      name: "Meera K.",
+      role: "Makeup Artist",
+      text: "Professional grooming and makeup techniques taught here are industry standard. I feel so confident now.",
+    },
+  ];
 
   const faqs = [
     {
@@ -190,14 +265,20 @@ export default function Home() {
         title="Best Aari Embroidery & Fashion Designing in Chidambaram"
         description="Master Aari embroidery and Tailoring at Glorious Art Creations — Chidambaram's premier vocational training center. Affiliated to ICVE/CDL/CHM-281."
         url="/"
+      <SEO
+        title="Best Aari Embroidery & Fashion Designing in Chidambaram"
+        description="Master Aari embroidery and Tailoring at Glorious Art Creations — Chidambaram's premier vocational training center. Affiliated to ICVE/CDL/CHM-281."
+        url="/"
         keywords="aari embroidery chidambaram, tailoring classes chidambaram, fashion designing course chidambaram, makeup academy chidambaram, bridal blouse stitching chidambaram"
         schema={homeSchema}
       />
 
       {/* ── Hero Section ──────────────────────────────────── */}
       <section className="relative min-h-[85vh] lg:min-h-[100vh] flex items-center pt-28 sm:pt-40 lg:pt-48 pb-20 lg:pb-32 overflow-hidden bg-white">
+      <section className="relative min-h-[85vh] lg:min-h-[100vh] flex items-center pt-28 sm:pt-40 lg:pt-48 pb-20 lg:pb-32 overflow-hidden bg-white">
         <div className="absolute top-0 right-[-10%] w-[80vw] lg:w-[60vw] h-[80vw] lg:h-[60vw] bg-rose-50 rounded-full blur-[120px] opacity-60" />
         <div className="absolute bottom-[-20%] left-[-10%] w-[60vw] lg:w-[50vw] h-[60vw] lg:h-[50vw] bg-purple-50 rounded-full blur-[100px] opacity-40" />
+
 
         <div className="container-custom relative z-10 px-4 sm:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24 items-center">
@@ -214,13 +295,23 @@ export default function Home() {
                       className="w-6 h-6 rounded-full border-2 border-white bg-slate-200"
                     />
                   ))}
+                  {[1, 2, 3, 4].map((i) => (
+                    <div
+                      key={i}
+                      className="w-6 h-6 rounded-full border-2 border-white bg-slate-200"
+                    />
+                  ))}
                 </div>
+                <span className="text-[10px] xs:text-xs font-extrabold uppercase tracking-widest text-slate-700">
+                  Join 500+ successful Women in Chidambaram
+                </span>
                 <span className="text-[10px] xs:text-xs font-extrabold uppercase tracking-widest text-slate-700">
                   Join 500+ successful Women in Chidambaram
                 </span>
               </motion.div>
 
               <div className="space-y-8">
+                <motion.h1
                 <motion.h1
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -232,8 +323,17 @@ export default function Home() {
                     SKILL BASED VOCATIONAL TRAINING{" "}
                   </span>{" "}
                   <br />& Advance Diploma Courses.
+                  MASTERY IN{" "}
+                  <span className="gradient-text italic font-normal text-slate-900">
+                    SKILL BASED VOCATIONAL TRAINING{" "}
+                  </span>{" "}
+                  <br />& Advance Diploma Courses.
                 </motion.h1>
 
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 1 }}
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -247,11 +347,17 @@ export default function Home() {
               </div>
 
               <motion.div
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, type: "spring" }}
+                transition={{ delay: 0.5, type: "spring" }}
                 className="flex flex-col md:flex-row items-center gap-6 justify-center lg:justify-start"
               >
+                <Link
+                  to="/contact?course=aari"
+                  className="btn-premium btn-gradient w-full sm:w-auto text-lg px-12 text-center"
+                >
                 <Link
                   to="/contact?course=aari"
                   className="btn-premium btn-gradient w-full sm:w-auto text-lg px-12 text-center"
@@ -269,16 +375,36 @@ export default function Home() {
                       className="group-hover:translate-x-1 transition-transform"
                     />
                   </div>
+                <Link
+                  to="/courses"
+                  className="btn-premium btn-outline w-full sm:w-auto text-lg px-12 group"
+                >
+                  <div className="flex items-center gap-3">
+                    View Catalog{" "}
+                    <ChevronRight
+                      size={22}
+                      className="group-hover:translate-x-1 transition-transform"
+                    />
+                  </div>
                 </Link>
               </motion.div>
             </div>
 
             <div className="lg:col-span-5 xl:col-span-6 flex justify-center lg:justify-end">
               <motion.div
+              <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="relative w-full max-w-[580px]"
               >
+                <div className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl animate-float group">
+                  <img
+                    src={heroImg}
+                    alt="Master Aari Embroidery in Chidambaram"
+                    className="w-full h-auto object-cover aspect-[4/5] transform group-hover:scale-105 transition-transform duration-1000"
+                    fetchpriority="high"
+                    loading="eager"
+                  />
                 <div className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl animate-float group">
                   <img
                     src={heroImg}
@@ -297,6 +423,7 @@ export default function Home() {
       {/* ── Featured Courses ────────────────────────────── */}
       <section className="section-padding bg-slate-50 overflow-hidden">
         <div className="container-custom text-center lg:text-left">
+          <SectionTitle
           <SectionTitle
             subtitle="The Academy Program"
             title="Premium <span className='italic font-normal'>Courses</span> in Fashion"
@@ -319,7 +446,17 @@ export default function Home() {
                       loading="lazy"
                       decoding="async"
                     />
+                    <img
+                      src={c.img}
+                      alt={`Professional ${c.title} course at Glorious Art Creations Chidambaram`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 absolute inset-0"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   ) : (
+                    <div className="w-full h-full flex items-center justify-center text-7xl bg-slate-50">
+                      {c.emoji}
+                    </div>
                     <div className="w-full h-full flex items-center justify-center text-7xl bg-slate-50">
                       {c.emoji}
                     </div>
@@ -449,7 +586,36 @@ export default function Home() {
                   <div className="space-y-4 relative z-10">
                     <div className="text-slate-900 font-extrabold text-[10px] tracking-[.4em] uppercase opacity-60">
                       National Recognition
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                className="aspect-auto md:aspect-square rounded-[3rem] md:rounded-[4rem] bg-white flex flex-col items-center justify-center p-8 lg:p-16 text-center border-4 border-rose-500 shadow-[0_0_50px_rgba(225,29,72,0.3)] relative group overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-linear-to-br from-rose-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative z-10 space-y-8">
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl bg-slate-50 flex items-center justify-center p-4 border border-slate-100 mx-auto group-hover:rotate-6 transition-transform">
+                    <Award
+                      size={64}
+                      className="text-rose-500"
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                  <div className="space-y-4 relative z-10">
+                    <div className="text-slate-900 font-extrabold text-[10px] tracking-[.4em] uppercase opacity-60">
+                      National Recognition
                     </div>
+                    <h3 className="text-slate-900 font-serif text-2xl sm:text-3xl font-bold leading-tight">
+                      Indian Council for <br /> Vocational Education
+                    </h3>
+                  </div>
+                  <div className="py-4 px-8 bg-linear-to-r from-rose-600 to-rose-700 rounded-2xl text-white font-black text-[10px] uppercase tracking-[0.2em] inline-block shadow-xl shadow-rose-100 relative z-10">
+                    100% Govt Recognized
+                  </div>
+                  <p className="text-slate-400 text-[10px] max-w-xs mx-auto font-bold uppercase tracking-widest relative z-10">
+                    ISO 9001:2015 CERTIFIED ACADEMY
+                  </p>
+                </div>
+              </motion.div>
                     <h3 className="text-slate-900 font-serif text-2xl sm:text-3xl font-bold leading-tight">
                       Indian Council for <br /> Vocational Education
                     </h3>
@@ -513,18 +679,31 @@ export default function Home() {
             subtitle="Your Questions Answered"
             title="Common <span className='italic font-normal'>Inquiries</span>"
             center
+          <SectionTitle
+            subtitle="Your Questions Answered"
+            title="Common <span className='italic font-normal'>Inquiries</span>"
+            center
           />
           <div className="max-w-4xl mx-auto space-y-6">
             {faqs.map((faq, i) => (
+              <motion.div
+                key={i}
               <motion.div
                 key={i}
                 className="bg-white rounded-[2.5rem] border border-slate-100 overflow-hidden shadow-sm"
                 {...fadeIn}
               >
                 <button
+                <button
                   onClick={() => setActiveFaq(activeFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-8 text-left hover:bg-slate-50 transition-colors"
                 >
+                  <span className="text-lg md:text-xl font-bold text-slate-800">
+                    {faq.q}
+                  </span>
+                  <div
+                    className={`p-3 rounded-2xl transition-all ${activeFaq === i ? "bg-rose-600 text-white rotate-45" : "bg-slate-50"}`}
+                  >
                   <span className="text-lg md:text-xl font-bold text-slate-800">
                     {faq.q}
                   </span>
@@ -538,6 +717,7 @@ export default function Home() {
                   {activeFaq === i && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
                     >
@@ -578,7 +758,40 @@ export default function Home() {
                 </span>{" "}
                 This summer special expires soon.
               </p>
+              <div className="space-y-4">
+                <span className="text-rose-400 font-extrabold uppercase tracking-[.4em] text-[10px] sm:text-xs">
+                  Limited Time Offer
+                </span>
+                <h2 className="heading-special text-white font-bold">
+                  Secure Your Spot for the <br />
+                  <span className="gradient-text italic font-normal">
+                    June Batch
+                  </span>
+                </h2>
+              </div>
 
+              <p className="text-slate-400 font-medium text-lg max-w-2xl mx-auto">
+                Join any Professional course today and get{" "}
+                <span className="text-white font-bold underline decoration-rose-500 underline-offset-8">
+                  30 Days of Advanced Training for FREE!
+                </span>{" "}
+                This summer special expires soon.
+              </p>
+
+              <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+                <Link
+                  to="/contact"
+                  className="btn-premium btn-gradient w-full sm:w-auto px-16 text-lg py-5 shadow-rose-900/40 text-center"
+                >
+                  Enroll with Free Offer <ArrowRight size={22} />
+                </Link>
+                <a
+                  href="tel:+918072769642"
+                  className="text-white font-bold flex items-center gap-3 hover:text-rose-400 transition-colors"
+                >
+                  <Phone size={24} className="text-rose-500" /> +91 80727 69642
+                </a>
+              </div>
               <div className="flex flex-col md:flex-row items-center justify-center gap-8">
                 <Link
                   to="/contact"
@@ -598,5 +811,6 @@ export default function Home() {
         </div>
       </section>
     </PageWrapper>
+  );
   );
 }

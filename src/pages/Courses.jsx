@@ -22,6 +22,8 @@ const coursesData = [
   {
     id: "aari",
     category: "Embroidery",
+    id: "aari",
+    category: "Embroidery",
     img: aariImg,
     title: "Aari Embroidery",
     subtitle: "Proficient enchanting with threads",
@@ -35,6 +37,8 @@ const coursesData = [
   {
     id: "tailoring",
     category: "Fashion",
+    id: "tailoring",
+    category: "Fashion",
     img: tailoringImg,
     title: "Fashion Designing (FD)",
     subtitle: "Legacy elegance in every thread",
@@ -46,6 +50,8 @@ const coursesData = [
     badge: "★ Professional",
   },
   {
+    id: "makeup",
+    category: "Beauty",
     id: "makeup",
     category: "Beauty",
     img: makeupImg,
@@ -146,10 +152,16 @@ export default function Courses() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     itemListElement: coursesData.map((c, i) => ({
+    itemListElement: coursesData.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
       item: {
+      position: i + 1,
+      item: {
         "@type": "Course",
+        name: c.title,
+        description: c.description,
+        provider: {
         name: c.title,
         description: c.description,
         provider: {
@@ -160,9 +172,18 @@ export default function Courses() {
       },
     })),
   };
+          name: "Glorious Art Creations",
+          sameAs: "https://gloriousartcreations.com",
+        },
+      },
+    })),
+  };
 
   return (
     <PageWrapper>
+      <SEO
+        title="Professional Fashion Courses | Aari, Tailoring & Makeup in Chidambaram"
+        description="Browse our master catalog of fashion arts. From Aari embroidery to bridal makeup, get certified by Glorious Art Creations — #1 in Chidambaram."
       <SEO
         title="Professional Fashion Courses | Aari, Tailoring & Makeup in Chidambaram"
         description="Browse our master catalog of fashion arts. From Aari embroidery to bridal makeup, get certified by Glorious Art Creations — #1 in Chidambaram."
@@ -176,12 +197,14 @@ export default function Courses() {
         <div className="container-custom relative z-10 text-center lg:text-left">
           <div className="max-w-3xl">
             <motion.span
+            <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="text-rose-600 font-extrabold uppercase tracking-[0.4em] text-[10px] sm:text-xs mb-4 block"
             >
               Excellence in Arts
             </motion.span>
+            <motion.h1
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -345,8 +368,39 @@ export default function Courses() {
               </div>
             </div>
           </div>
+          <div className="glass-card rounded-[4rem] p-10 md:p-20 text-center border-white shadow-premium relative overflow-hidden group">
+            <div className="absolute inset-0 bg-linear-to-tr from-rose-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="relative z-10">
+              <ShieldCheck className="mx-auto text-rose-500 mb-8" size={56} />
+              <h2 className="font-serif text-3xl sm:text-6xl font-bold text-slate-900 mb-8 leading-tight">
+                Need Career Advice?
+              </h2>
+              <p className="text-slate-500 font-medium text-lg leading-relaxed max-w-xl mx-auto mb-12">
+                Not sure which course is right for you? Talk to our master
+                trainers in Chidambaram for a{" "}
+                <span className="text-rose-600 font-bold underline decoration-rose-200 underline-offset-8">
+                  Free 1-on-1 Consultation.
+                </span>
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <Link
+                  to="/contact"
+                  className="btn-premium btn-gradient w-full sm:w-auto px-12 text-center"
+                >
+                  Start Free Consultation <ArrowRight size={18} />
+                </Link>
+                <a
+                  href="tel:+918072769642"
+                  className="btn-premium btn-outline w-full sm:w-auto px-12 text-center"
+                >
+                  Call for Admission <Phone size={18} className="ml-2" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </PageWrapper>
+  );
   );
 }

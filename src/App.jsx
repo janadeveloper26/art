@@ -20,8 +20,15 @@ const CourseDetail = lazy(() => import("./pages/CourseDetail"));
 const About = lazy(() => import("./pages/About"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Home = lazy(() => import("./pages/Home"));
+const Courses = lazy(() => import("./pages/Courses"));
+const CourseDetail = lazy(() => import("./pages/CourseDetail"));
+const About = lazy(() => import("./pages/About"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 function AnimatedRoutes() {
+  const location = useLocation();
   const location = useLocation();
   return (
     <Suspense fallback={<Loader />}>
@@ -36,6 +43,7 @@ function AnimatedRoutes() {
         </Routes>
       </AnimatePresence>
     </Suspense>
+  );
   );
 }
 
@@ -55,6 +63,8 @@ function App() {
       </Router>
     </HelmetProvider>
   );
+  );
 }
 
+export default App;
 export default App;

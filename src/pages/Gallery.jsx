@@ -9,6 +9,33 @@ import aariImg from '../assets/aari.png'
 import tailoringImg from '../assets/tailoring.png'
 import makeupImg from '../assets/makeup.png'
 
+// New Gallery Images
+import g1 from '../assets/WhatsApp Image 2026-04-21 at 10.37.14 AM.jpeg'
+import g2 from '../assets/WhatsApp Image 2026-04-21 at 10.36.43 AM (1).jpeg'
+import g3 from '../assets/WhatsApp Image 2026-04-21 at 10.36.43 AM.jpeg'
+import g4 from '../assets/WhatsApp Image 2026-04-21 at 10.36.44 AM.jpeg'
+import g6 from '../assets/WhatsApp Image 2026-04-21 at 10.36.46 AM.jpeg'
+import g7 from '../assets/WhatsApp Image 2026-04-21 at 10.36.47 AM.jpeg'
+import g8 from '../assets/WhatsApp Image 2026-04-21 at 10.36.49 AM.jpeg'
+import g9 from '../assets/WhatsApp Image 2026-04-21 at 10.37.14 AM (1).jpeg'
+import g11 from '../assets/WhatsApp Image 2026-04-21 at 10.37.20 AM (1).jpeg'
+import g12 from '../assets/WhatsApp Image 2026-04-21 at 10.37.20 AM.jpeg'
+import g13 from '../assets/WhatsApp Image 2026-04-21 at 10.37.20 AM (2).jpeg'
+import g14 from '../assets/WhatsApp Image 2026-04-22 at 9.19.06 PM.jpeg'
+import g15 from '../assets/WhatsApp Image 2026-04-22 at 9.19.07 PM.jpeg'
+import g16 from '../assets/WhatsApp Image 2026-04-22 at 9.19.08 PM (1).jpeg'
+import g17 from '../assets/WhatsApp Image 2026-04-22 at 9.19.09 PM (1).jpeg'
+import g18 from '../assets/WhatsApp Image 2026-04-22 at 9.19.09 PM.jpeg'
+import g19 from '../assets/WhatsApp Image 2026-04-22 at 9.19.11 PM (1).jpeg'
+import g20 from '../assets/WhatsApp Image 2026-04-22 at 9.19.11 PM.jpeg'
+import g21 from '../assets/WhatsApp Image 2026-04-22 at 9.19.14 PM (1).jpeg'
+import g22 from '../assets/WhatsApp Image 2026-04-22 at 9.19.14 PM.jpeg'
+import g23 from '../assets/WhatsApp Image 2026-04-21 at 10.37.16 AM.jpeg'
+import g24 from '../assets/WhatsApp Image 2026-04-24 at 1.33.41 PM.jpeg'
+import g25 from '../assets/WhatsApp Image 2026-04-24 at 8.32.23 AM.jpeg'
+import g26 from '../assets/WhatsApp Image 2026-04-24 at 8.32.24 AM.jpeg'
+import g27 from '../assets/WhatsApp Image 2026-04-24 at 8.33.13 AM.jpeg'
+
 const InstagramIcon = ({ size = 24 }) => (
   <svg 
     width={size} 
@@ -28,11 +55,34 @@ const InstagramIcon = ({ size = 24 }) => (
 
 const items = [
   { img: aariImg, title: 'Bridal Embroidery', cat: 'Student Work', alt: 'Intricate Aari embroidery bridal work by student' },
+  { img: g1, title: 'Boutique Design', cat: 'Student Work', alt: 'Professional boutique design' },
+  { img: g2, title: 'Silk Masterpiece', cat: 'Masterclass', alt: 'Intricate silk embroidery' },
+  { img: g3, title: 'Bridal Detail', cat: 'Embroidery', alt: 'Detailed bridal work' },
+  { img: g4, title: 'Designer Pattern', cat: 'Fashion', alt: 'Modern fashion pattern' },
+  { img: g6, title: 'Golden Threads', cat: 'Luxury', alt: 'Golden thread work' },
+  { img: g7, title: 'Creative Craft', cat: 'Student Work', alt: 'Creative student craft' },
+  { img: g8, title: 'Modern Aari', cat: 'Embroidery', alt: 'Modern Aari work' },
+  { img: g9, title: 'Fashion Sketch', cat: 'Design', alt: 'Fashion design sketch' },
+  { img: g11, title: 'Exquisite Work', cat: 'Advanced', alt: 'Exquisite craftsmanship' },
+  { img: g12, title: 'Custom Boutique', cat: 'Boutique', alt: 'Custom boutique piece' },
+  { img: g13, title: 'Artistic Vision', cat: 'Workshop', alt: 'Artistic vision project' },
+  { img: g14, title: 'Floral Patterns', cat: 'Embroidery', alt: 'Floral embroidery patterns' },
+  { img: g15, title: 'Traditional Art', cat: 'Heritage', alt: 'Traditional art form' },
+  { img: g16, title: 'Modern Silhouette', cat: 'Fashion', alt: 'Modern silhouette design' },
+  { img: g17, title: 'Precision Tailoring', cat: 'Tailoring', alt: 'Precision tailoring work' },
+  { img: g18, title: 'Chic Collection', cat: 'Student Work', alt: 'Chic student collection' },
+  { img: g19, title: 'Intricate Design', cat: 'Aesthetics', alt: 'Intricate aesthetic design' },
+  { img: g20, title: 'Golden Embroidery', cat: 'Luxury', alt: 'Golden embroidery detail' },
+  { img: g21, title: 'Designer Showcase', cat: 'Professional', alt: 'Designer showcase piece' },
+  { img: g22, title: 'Boutique Excellence', cat: 'Boutique', alt: 'Boutique excellence' },
+  { img: g23, title: 'Master Trainer Work', cat: 'Masterclass', alt: 'Work by master trainer' },
+  { img: g24, title: 'Student Excellence', cat: 'Achievement', alt: 'Award winning student work' },
+  { img: g25, title: 'Creative Workshop', cat: 'Handmade', alt: 'Artistic handmade workshop piece' },
+  { img: g26, title: 'Masterpiece Collection', cat: 'Advanced', alt: 'Advanced student masterpiece' },
+  { img: g27, title: 'Artistic Flair', cat: 'Design', alt: 'Modern artistic design showcase' },
   { img: tailoringImg, title: 'Designer Blouse', cat: 'Masterclass', alt: 'Professional designer blouse tailoring in Chidambaram' },
   { img: makeupImg, title: 'Bridal Glam', cat: 'Professional', alt: 'Bridal makeup artistry by expert student' },
   { img: heroImg, title: 'Fashion Design', cat: 'Aesthetics', alt: 'Advanced fashion designing student project' },
-  { img: aariImg, title: 'Silk Work', cat: 'Embroidery', alt: 'Silk thread Aari embroidery detailing' },
-  { img: tailoringImg, title: 'Boutique Collection', cat: 'Student Work', alt: 'Boutique collection displayed at Glorious Art' },
 ]
 
 export default function Gallery() {
@@ -69,29 +119,22 @@ export default function Gallery() {
 
       <section className="section-padding px-5 sm:px-8 bg-white">
         <div className="container-custom">
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+           <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 sm:gap-10 space-y-8 sm:space-y-10">
               {items.map((item, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group relative overflow-hidden rounded-[2.5rem] bg-slate-100 cursor-pointer shadow-sm hover:shadow-2xl transition-all h-[400px]"
+                  transition={{ delay: i * 0.05 }}
+                  className="break-inside-avoid group relative overflow-hidden rounded-[2.5rem] bg-slate-100 cursor-pointer shadow-sm hover:shadow-2xl transition-all"
                 >
-                   <img src={item.img} alt={item.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-                   <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                   
-                   <div className="absolute bottom-10 left-10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                      <span className="text-rose-400 text-[10px] font-extrabold uppercase tracking-widest">{item.cat}</span>
-                      <h3 className="text-white text-2xl font-serif font-bold mt-1">{item.title}</h3>
-                   </div>
-                   
-                   <div className="absolute top-10 right-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-rose-600 shadow-xl">
-                         <Plus size={24} />
-                      </div>
-                   </div>
+                   <img 
+                    src={item.img} 
+                    alt={item.alt} 
+                    className="w-full h-auto display-block transition-transform duration-700 group-hover:scale-105" 
+                    loading="lazy" 
+                  />
                 </motion.div>
               ))}
            </div>
@@ -110,12 +153,12 @@ export default function Gallery() {
                 Follow our daily artistic journeys and student progress on Instagram. Get your daily dose of creative energy.
               </p>
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/gloriousartcreations_aari?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn-premium btn-gradient w-full sm:w-auto px-12 text-center"
               >
-                Follow @gloriousartcreations <InstagramIcon size={18} />
+                Follow @gloriousartcreations_aari <InstagramIcon size={18} />
               </a>
            </div>
         </div>

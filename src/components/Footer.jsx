@@ -18,8 +18,10 @@ const InstagramIcon = ({ size = 20 }) => (
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
   </svg>
 );
+);
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -27,7 +29,7 @@ export default function Footer() {
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-24 mb-20">
           {/* Brand */}
-          <div className="space-y-8 col-span-1 md:col-span-2 lg:col-span-1">
+          <div className="space-y-8 col-span-1 md:col-span-2 lg:col-span-2">
             <Link to="/" className="flex items-center gap-3">
               <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl flex items-center justify-center p-1 shadow-sm shrink-0">
                 <img
@@ -90,6 +92,12 @@ export default function Footer() {
               Courses
             </h4>
             <ul className="space-y-4">
+              {[
+                "Aari Embroidery",
+                "Tailoring Design",
+                "Makeup Artistry",
+                "Handmade Crafts",
+              ].map((link) => (
               {[
                 "Aari Embroidery",
                 "Tailoring Design",
@@ -165,8 +173,22 @@ export default function Footer() {
           <p className="text-slate-400 text-xs font-bold uppercase tracking-widest">
             Made with ❤️ for Chidambaram
           </p>
+        <div className="pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="space-y-2 text-center md:text-left">
+            <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">
+              © {currentYear} Glorious Art Creations
+            </p>
+            <p className="text-rose-500/60 text-[9px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-md">
+              Privacy Policy: Syllabus only service oriented not for classes
+              without franchise our NAME. SERVICE also available.
+            </p>
+          </div>
+          <p className="text-slate-400 text-xs font-bold uppercase tracking-widest">
+            Made with ❤️ for Chidambaram
+          </p>
         </div>
       </div>
     </footer>
+  );
   );
 }
